@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Container from '../container/container'
-import SiteLogo from '../site-logo/site-logo'
+import Container from '../Container/Container'
+import SiteLogo from '../SiteLogo/SiteLogo'
 
 class Header extends React.Component {
     render() {

@@ -1,7 +1,6 @@
 import React from 'react'
 
 import './footer.scss'
-import '../../styles/site-logo.scss'
 
 export default () => (
 <footer className="footer--wrapper">

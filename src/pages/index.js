@@ -3,9 +3,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 
-import Layout from '../components/layout/layout'
-import SiteLogo from '../components/site-logo/site-logo'
-import AboutIndex from '../components/about/about'
+import Layout from '../components/Layout/Layout'
 
 class RootIndex extends React.Component {
   render() {
@@ -13,7 +11,7 @@ class RootIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <main>
-            <AboutIndex></AboutIndex>
+          главная
         </main>
       </Layout>
     )
@@ -21,3 +19,4 @@ class RootIndex extends React.Component {
 }
 
 export default RootIndex
+

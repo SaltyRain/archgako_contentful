@@ -1,0 +1,110 @@
+@import './fonts';
+@import './variables';
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Arsenal-Regular", "Roboto", sans-serif;
+    color: $black;
+    font-size: 16px;
+
+    background-color: $white;
+
+    margin: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    &:focus {
+        outline-color: $light-gray;
+    }
+}
+
+img {
+    width: 100%;
+}
+
+p {
+    font-size: 15px;
+}
+@media (min-width: 1400px) {
+    p {
+        font-size: 17px;
+    }
+}
+
+// button {
+//     &:focus {
+//         outline-color: $light-gray;
+//     }
+// }
+
+
+.full-width {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-top: 32px;
+    margin-bottom: 48px;
+}
+.full-article {
+    p {
+        line-height: 140%;
+    }
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.sign {
+    font-family: $aesthetic-white;
+}
+
+.intro-text {
+    font-size: 20px;
+    margin-bottom: 48px;
+}
+
+.page-text {
+    &_center {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    &_tight {
+        max-width: 900px;
+    }
+    &_close-paragraph {
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+}
+
+.site-logo--archgako {
+    font-family: $antic-didone;
+    display: block;
+}
+
+.site-logo--sign {
+    font-family: $aesthetic-white;
+    
+    display: block;
+}
+

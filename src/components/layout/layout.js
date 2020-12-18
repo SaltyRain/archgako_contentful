@@ -2,15 +2,14 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Container from '../container/container'
 
-import Header from '../header/header'
+import Header from '../header/Header'
 import Footer from '../footer/footer'
 
-import './layout.scss';
+import './layout.scss'
 
 class Template extends React.Component {
   render() {
-    const { location, children } = this.props
-    let header
+    const { location, children, lang } = this.props
 
     let rootPath = `/`
     if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
@@ -20,12 +19,11 @@ class Template extends React.Component {
     return (
       <div>
         <Container>
-          <Header/>
+          <Header lang={lang} location={location} />
           {children}
-          </Container>
-        <Footer/>
+        </Container>
+        <Footer />
       </div>
-      
     )
   }
 }

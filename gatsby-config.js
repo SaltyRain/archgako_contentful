@@ -1,13 +1,11 @@
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: `./.env`,
 })
 
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 }
-
-const languages = require('./src/data/languages');
 
 // if you want to use the preview API please define
 // CONTENTFUL_HOST in your environment config
@@ -28,7 +26,10 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'Archgako',
-    languages
+    languages: {
+      langs: ['en', 'ru'],
+      defaultLangKey: 'ru',
+    },
   },
   // pathPrefix: '/gatsby-contentful-starter',
   plugins: [
@@ -44,10 +45,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-i18n',
       options: {
-        langKeyForNull: 'any',
-        langKeyDefault: languages.defaultLangKey,
-        useLangKeyLayout: false
-      }
+        langKeyForNull: 'ru',
+        langKeyDefault: 'ru',
+        prefixDefault: false,
+        useLangKeyLayout: false,
+      },
     },
   ],
 }

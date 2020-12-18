@@ -1,5 +1,5 @@
 // @import "../../scss/fonts";
-@import "../../scss/variables";
+@import "../../styles/variables";
 
 *,
 *:before,
@@ -72,9 +72,9 @@ p {
     overflow: hidden;
 }
 
-.sign {
-    // font-family: 'Arsenal-Regular';
-}
+// .sign {
+//     // font-family: 'Arsenal-Regular';
+// }
 
 .intro-text {
     font-size: 20px;

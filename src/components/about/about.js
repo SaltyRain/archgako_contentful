@@ -1,12 +1,14 @@
 import React from 'react'
 import get from 'lodash/get'
 import './about.scss';
+import { Link, graphql } from 'gatsby';
 
 class AboutIndex extends React.Component {
     render() {
         const blockTitle = get(this, 'props.data.allContentfulAboutStudio.edges.node.title')
         const shortAbout = get(this, 'props.data.allContentfulAboutStudio.edges.node.shortAbout.shortAbout')
 
+        console.log(this);
         const siteTitle = get(this, 'props.data.site.siteMetadata.title')
         const posts = get(this, 'props.data.allContentfulBlogPost.edges')
         console.log(posts)

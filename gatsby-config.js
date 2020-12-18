@@ -1,5 +1,5 @@
 require('dotenv').config({
-  path: `./.env`,
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
 const contentfulConfig = {
@@ -34,9 +34,11 @@ module.exports = {
   // pathPrefix: '/gatsby-contentful-starter',
   plugins: [
     'gatsby-transformer-remark',
+
     'gatsby-transformer-sharp',
+    `gatsby-plugin-sharp`,
+
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sharp',
     `gatsby-plugin-sass`,
     {
       resolve: 'gatsby-source-contentful',

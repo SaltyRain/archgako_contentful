@@ -1,0 +1,13 @@
+.team {
+    h2 {
+        margin-top: 80px;
+        margin-bottom: 32px;
+    }
+}
+@media (min-width: 480px) {
+    .team {
+        h2 {
+            margin-bottom: 48px;
+        }
+    }
+}

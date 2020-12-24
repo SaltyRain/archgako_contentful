@@ -5,15 +5,17 @@ import Img from 'gatsby-image'
 
 import Layout from '../components/Layout/Layout'
 import AboutCountry from '../components/AboutCountry/AboutCountry'
+import TeamMember from '../components/TeamMember/TeamMember'
 
 import '../styles/pages/about.scss'
 
 const AboutPage = ({ data, location }) => {
+    console.log(data.allContentfulEmployee, 'HUI SOSI PIDOR')
     return (
         <Layout location={location} lang='en'>
             <div className="container">
                 <section className="about">
-                    <h1 class="page--heading animate__animated animate__fadeIn">About</h1>
+                    <h1 class="page--heading animate__animated animate__fadeIn">О студии</h1>
 
                     <div className="about--text-ful-width" 
                         dangerouslySetInnerHTML={{__html: data.allContentfulAboutStudio.edges[0].node.longAbout.childMarkdownRemark.html }}/>
@@ -33,7 +35,19 @@ const AboutPage = ({ data, location }) => {
                     />
                 </section>
                 <section className="team">
-                    <h2 className="section--heading" data-aos="fade-up">Our team</h2>
+                    <h2 className="section--heading" data-aos="fade-up">Наша команда</h2>
+                    {
+                        data.allContentfulEmployee.nodes.map((item, index) => {
+                            return (
+                                <TeamMember 
+                                member = {item}
+                                extraClasses = {
+                                    index % 2 !== 0 ? ['team-member--row_image-right', 'team-member--photo_right'] : ''
+                                }
+                                />
+                            )
+                        })
+                    }
                 </section>
 
 
@@ -81,11 +95,30 @@ export default AboutPage
                   html
                 }
               }
-
             }
+        }
+        }
 
-        }
-        }
+        allContentfulEmployee(filter: {node_locale: {eq: "en"}}) {
+            nodes {
+              photo {
+                description
+                fixed(height: 300, width: 300) {
+                    ...GatsbyContentfulFixed
+                }
+              }
+              specialization
+              phone
+              name
+              instagram
+              education
+              bio {
+                childMarkdownRemark {
+                  html
+                }
+              }
+            }
+          }
     }
   
  `

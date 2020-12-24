@@ -1,6 +1,8 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 
+import './Navigation.scss'
+
 function Navigation({ lang, location }) {
   const data = useStaticQuery(graphql`
     query navQuery {
@@ -34,18 +36,18 @@ function Navigation({ lang, location }) {
   }
 
   return (
-    <nav>
+    <nav className="header--site-nav site-nav">
       <ul>
         {localeNavItems.map((item) => {
           if (lang === 'ru')
             return (
-              <li key={item}>
+              <li key={item} className="site-nav--item">
                 <Link to={'/' + `${navTitleToLink[item]}`}>{item}</Link>
               </li>
             )
           else
             return (
-              <li key={item}>
+              <li key={item} className="site-nav--item">
                 <Link to={`${location.pathname}` + `${item.toLowerCase()}`}>
                   {item}
                 </Link>

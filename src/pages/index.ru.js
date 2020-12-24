@@ -32,7 +32,7 @@ const IndexPage = ({ data, location }) => {
 export default IndexPage
 
 export const indexPageQuery = graphql`
-  query indexPageQuery {
+  query indexRuPageQuery {
     ru: allContentfulAboutStudio(filter: {node_locale: {eq: "ru"}}) {
       edges {
         node {

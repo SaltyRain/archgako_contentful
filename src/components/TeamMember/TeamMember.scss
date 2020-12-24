@@ -1,0 +1,170 @@
+.team-member--row {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-member--photo {
+    align-self: center;
+    max-width: 300px;
+    img {
+        width: 100%;
+    }
+}
+
+.team-member--info {
+    order: 1;
+    &:first-child {
+        margin-left: 16px;
+    }
+}
+.team-member--name {
+    font-family: "Arsenal-Bold";
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.team-member--specialization {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    text-transform: uppercase;
+    color: #999999;
+    li {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.team-member--education {
+    list-style: square;
+    line-height: 2em;
+    margin-top: 28px;
+}
+
+
+.team-member--contacts {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+    padding-inline-start: 0px;
+    padding-left: 18px;
+    li {
+        display: flex;
+        margin-top: 24px;
+    }
+    &_no-padding {
+        padding-left: 0;
+    }
+}
+
+
+
+.team-member-contacts--text {
+    display: block;
+    margin-left: 12px;
+    margin-top: 6px;
+    border-bottom: 1px solid transparent;
+    transition: 0.2s;
+    &:hover {
+        border-bottom: 1px solid #262626;
+    }
+}
+
+
+
+.team-member--desc {
+    margin-top: 48px;
+    margin-bottom: 80px;
+}
+
+.team--sign {
+    display: block;
+    text-align: center;
+    font-size: 48px;
+}
+@media (min-width: 680px) {
+    .team-member--row {
+        flex-direction: row;
+    }
+    .team-member--contacts {
+        flex-direction: column;
+        padding-left: 18px;
+        &_no-padding {
+            padding-left: 0;
+        }
+    }
+    .team-member--photo {
+        align-self: flex-start;
+    }
+    .team-member--name {
+        margin-top: 0;
+        text-align: left;
+        padding-left: 28px;
+    }
+
+    // Картинка справа
+    .team-member--row_image-right {
+        justify-content: space-between;
+    }
+    .team-member--row_image-right > .team-member--info {
+        margin-right: 20px;
+        margin-left: 0;
+    }
+    .team-member--row_image-right > .team-member--info > .team-member--title-wrapper > .team-member--name {
+        padding-left: 32px;
+    }
+    .team-member--photo_right {
+        order: 2;
+    }
+    .team-member--name {
+        margin-left: 0;
+    }
+}
+
+
+@media (min-width: 900px) {
+    .team-member--info {
+        margin-left: 32px;
+    }
+    .team-member--title-wrapper {
+        display: flex;
+        align-content: flex-start;
+    }
+    .team-member--name {
+        margin-left: 18px;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 32px;
+    }
+    .team-member--specialization {
+        li {
+            margin-left: 18px;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+    .team-member--contacts {
+        justify-content: flex-start;
+        li {
+            margin-right: 24px;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .team-member--contacts {
+        flex-direction: column;
+        li {
+            margin-right: 0;
+        }
+    }
+}

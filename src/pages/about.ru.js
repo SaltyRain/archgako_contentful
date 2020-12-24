@@ -5,10 +5,12 @@ import Img from 'gatsby-image'
 
 import Layout from '../components/Layout/Layout'
 import AboutCountry from '../components/AboutCountry/AboutCountry'
+import TeamMember from '../components/TeamMember/TeamMember'
 
 import '../styles/pages/about.scss'
 
 const AboutPage = ({ data, location }) => {
+    console.log(data.allContentfulEmployee, 'HUI SOSI PIDOR')
     return (
         <Layout location={location} lang='ru'>
             <div className="container">
@@ -34,7 +36,18 @@ const AboutPage = ({ data, location }) => {
                 </section>
                 <section className="team">
                     <h2 className="section--heading" data-aos="fade-up">Наша команда</h2>
-
+                    {
+                        data.allContentfulEmployee.nodes.map((item, index) => {
+                            return (
+                                <TeamMember 
+                                member = {item}
+                                extraClasses = {
+                                    index % 2 !== 0 ? ['team-member--row_image-right', 'team-member--photo_right'] : ''
+                                }
+                                />
+                            )
+                        })
+                    }
                 </section>
 
 
@@ -86,7 +99,26 @@ export default AboutPage
         }
         }
 
-        
+        allContentfulEmployee(filter: {node_locale: {eq: "ru"}}) {
+            nodes {
+              photo {
+                description
+                fixed(height: 300, width: 300) {
+                    ...GatsbyContentfulFixed
+                }
+              }
+              specialization
+              phone
+              name
+              instagram
+              education
+              bio {
+                childMarkdownRemark {
+                  html
+                }
+              }
+            }
+          }
     }
   
  `

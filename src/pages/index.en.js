@@ -9,29 +9,30 @@ import AboutIndex from '../components/AboutIndex/AboutIndex'
 
 import '../styles/pages/index.scss'
 
-const RootIndex = ({ data, location }) => {
-  console.log(data, 'PUIASD');
+const IndexPage = ({ data, location }) => {
   return (
     <Layout location={location} lang="en">
-      <main>главная</main>
-      <AboutIndex 
-      lang="en"
-      title = {data.ru.edges[0].node.title}
-      text = {data.ru.edges[0].node.shortAbout.childMarkdownRemark.html}
-      image = {data.aboutImageIndex.edges[0].node.aboutImageIndex.fluid}
-      alt = {data.aboutImageIndex.edges[0].node.aboutImageIndex.title}
-      buttontext = "More"
-      />
+      <div className="container">
+        <AboutIndex 
+        lang="en"
+        title = {data.ru.edges[0].node.title}
+        text = {data.ru.edges[0].node.shortAbout.childMarkdownRemark.html}
+        image = {data.aboutImageIndex.edges[0].node.aboutImageIndex.fluid}
+        alt = {data.aboutImageIndex.edges[0].node.aboutImageIndex.title}
+        buttontext = "Подробнее"
+        />
+      </div>
+
       
 
     </Layout>
   )
 }
 
-export default RootIndex
+export default IndexPage
 
-export const rootEnQuery = graphql`
-  query rootEnQuery {
+export const indexPageQuery = graphql`
+  query indexEnPageQuery {
     ru: allContentfulAboutStudio(filter: {node_locale: {eq: "en"}}) {
       edges {
         node {

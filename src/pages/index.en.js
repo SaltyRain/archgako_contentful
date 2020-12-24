@@ -7,7 +7,7 @@ import Layout from '../components/Layout/Layout'
 import AboutIndex from '../components/AboutIndex/AboutIndex' 
 
 
-import '../styles/index.scss'
+import '../styles/pages/index.scss'
 
 const RootIndex = ({ data, location }) => {
   console.log(data, 'PUIASD');

@@ -1,0 +1,131 @@
+.project-preview {
+    margin-bottom: 82px;
+}
+
+.project-preview--baner {
+    img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+    picture {
+        height: 220px;
+    }
+}
+
+.project-preview--row {
+    display: grid;
+    grid-template-areas: 
+    "info"
+    "title"
+    "scheme";
+}
+.project-preview--column {
+    &:first-child {
+        display: none;
+    }
+}
+
+.project-preview--name {
+    font-family: "Arsenal-Bold";
+    text-transform: uppercase;
+}
+
+.project-preview--city {
+    display: block;
+    font-size: 18px;
+}
+.project-preview--area {
+    display: block;
+    font-size: 18px;
+    margin-top: 6px;
+}
+
+.project-preview--desc {
+    strong {
+        font-weight: normal;
+        color:  #AF9888;
+    }
+}
+
+.project-preview--scheme {
+    text-align: center;
+    img {
+        width: 100%;
+        
+    }
+}
+.project-preview--explication {
+    font-size: 14px;
+}
+.project-preview--scheme-wrapper {
+    margin-top: 48px;
+}
+
+
+.project-preview--link {
+    float: right;
+}
+.project-preview--link-text {
+    font-size: 18px;
+    margin-right: 12px;
+    padding-bottom: 4px;
+    border-bottom: 1.5px solid #000;
+}
+
+.project-preview--link-arrow {
+    font-size: 1.3em;
+}
+
+
+@media (min-width: 768px) {
+    .project-preview--baner {
+        margin-bottom: 32px;
+        img {
+            height: 260px;
+        }
+    }
+    .project-preview--row {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 32px;
+    }
+    .project-preview--scheme-wrapper {
+        margin-top: 0;
+        justify-self: flex-end;
+        min-width: 360px;
+    }
+    .project-preview--name {
+        margin-top: 4px;
+    }
+    .project-preview--scheme {
+        max-width: none;
+    }
+    .project-preview {
+        margin-bottom: 100px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .project-preview--baner {
+        img {
+            height: 322px;
+        }
+    }
+    .project-preview {
+        margin-bottom: 130px;
+    }
+}
+
+@media (min-width: 1180px) {
+    .project-preview--column {
+        &:first-child {
+            display: block;
+        }
+    }
+    .project-preview--info-mobile {
+        display: none;
+    }
+    .project-preview--row {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

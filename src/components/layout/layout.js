@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Container from '../container/container'
 
-import Header from '../header/Header'
+import Header from '../Header/Header'
 import Footer from '../footer/footer'
 
 import './layout.scss'
@@ -17,13 +17,13 @@ class Template extends React.Component {
     }
 
     return (
-      <div>
-        <Container>
-          <Header lang={lang} location={location} />
+      <>
+        <Header lang={lang} location={location} />
+        <main>
           {children}
-        </Container>
+        </main>
         <Footer />
-      </div>
+      </>
     )
   }
 }

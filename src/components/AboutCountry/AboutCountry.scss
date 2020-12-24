@@ -1,0 +1,57 @@
+.about-country {
+    margin-top: 80px;
+}
+.about-country--map {
+    img {
+        width: 100%;
+    }
+}
+
+.about-country--description {
+    margin-top: 48px;
+}
+.about-country--title {
+    font-family: "Arsenal-Bold";
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+@media (min-width: 660px) {
+    .about-country {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+    .about-country--map {
+        min-width: 340px;
+        margin-right: 46px;
+        &_right {
+            order: 2;
+            margin-right: 0;
+            margin-left: 46px;
+        }
+    }
+    .about-country--description {
+        margin-top: 0;
+    }
+    .about-country--title {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 1000px) {
+    .about-country--map {
+        min-width: 460px;
+    }
+}
+
+@media (min-width: 1180px) {
+    .about-country--map {
+        margin-right: 160px;
+        &_right {
+            margin-right: 0;
+            margin-left: 160px;
+        }
+    }
+}

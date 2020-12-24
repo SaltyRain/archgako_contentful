@@ -38,6 +38,7 @@ img {
     width: 100%;
 }
 
+
 p {
     font-size: 15px;
 }
@@ -112,4 +113,13 @@ p {
     
     display: block;
 }
+
+.page--heading {
+    font-size: 28px;
+    font-weight: normal;
+    padding-bottom: 8px;
+    border-bottom: 2px solid $gray-brown;
+    margin-bottom: 36px;
+}
+
 

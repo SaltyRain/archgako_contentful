@@ -11,6 +11,7 @@ import Maps from '../components/Maps/Maps'
 // import '../styles/pages/services.scss'
 
 const ContactsPage = ({ data, location }) => {
+    console.log (data.allContentfulEmployee.nodes, "NOED")
     const phones = data.allContentfulEmployee.nodes.reduce((acc, node) => {
         if (node.phone.length > 1) {
         node.phone.forEach((node) => acc.push(node))
@@ -22,10 +23,11 @@ const ContactsPage = ({ data, location }) => {
     return (
         <Layout location={location} lang="en">
             <div className="container">
-                <h1 class="page--heading">Contacts</h1>
+                <h1 class="page--heading">Контакты</h1>
                 <ContactsBlock
                     mainInfo = {data.allContentfulCompanyContacts.nodes[0]}
                     phones = {phones}
+                    form = {data.allContentfulForm.nodes[0]}
                 />
                 <Maps
                     data = {data.allContentfulCompanyContacts.nodes[0].mapImages}
@@ -63,6 +65,16 @@ query contactsEnPageQuery {
           phone
         }
       }
+
+    allContentfulForm(filter: {title: {eq: "Send a message"}, node_locale: {eq: "en"}}) {
+      nodes {
+        title
+        slug
+        description
+        formFields
+        privacy
+      }
+    }
   }
   
 `

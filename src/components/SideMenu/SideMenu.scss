@@ -30,18 +30,7 @@
         right: 20px;
     }
 
-    .site-nav {
-        // margin-top: 20vh;
-        order: 2;
-        margin-left: 10%;
-        ul {
-            margin: 0;
-            padding: 0;
-        }
-    }
-    .site-nav--item {
-        margin-bottom: 12px;
-    }
+
 
     .request {
         display: block !important;
@@ -80,22 +69,7 @@
     .side-menu--close {
         display: none;
     }
-    .site-nav {
-        ul {
-            display: flex;
-            margin-right: 100px;
-            li {
-                margin-right: 20px;
-                border-bottom: 2px solid transparent;
-                margin-top: 6px;
-                padding-bottom: 6px;
-                transition: 0.2s;
-                &:hover {
-                    border-bottom: 2px solid #262626;
-                }
-            }
-        }
-    }
+
     .hamburger {
         display: none !important;
     }
@@ -119,7 +93,7 @@
         ul {
             margin-right: 130px;
             li {
-                margin-left: 18px;
+                margin-left: 14px;
             }
         }
     }

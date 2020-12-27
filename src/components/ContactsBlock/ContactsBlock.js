@@ -4,11 +4,13 @@ import '../TeamMember/TeamMember.scss'
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 
-function ContactsBlock ({ mainInfo, phones }) {
+import SendMessageForm from '../SendMessageForm/SendMessageForm'
+
+function ContactsBlock ({ mainInfo, phones, form }) {
     return (
         <div className="contacts--row">
             <div className="contacts--col">
-                <p className="intro-text">{mainInfo.introText}</p>
+                <p className="intro-text arsenal">{mainInfo.introText}</p>
                 <ul className="team-member--contacts team-member--contacts_no-padding">
                     <li className="contacts--item_margin-bot">
                         <div className="contacts--icon contacts--icon_location contacts--icon_big-margin"/>
@@ -28,7 +30,7 @@ function ContactsBlock ({ mainInfo, phones }) {
                             {
                                 phones.map((item) => {
                                     return (
-                                        <a href={`tel:${item}`} className='team-member-contacts--text'>{item}</a>
+                                        <a key={item} href={`tel:${item}`} className='team-member-contacts--text'>{item}</a>
                                     )
                                 })
                             }
@@ -40,8 +42,8 @@ function ContactsBlock ({ mainInfo, phones }) {
                     </li>
                 </ul>
             </div>
-            <div class="contacts--col">
-
+            <div className="contacts--col">
+                <SendMessageForm form = {form} />
             </div>
             
         </div>

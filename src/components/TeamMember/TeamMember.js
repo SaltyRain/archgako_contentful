@@ -1,12 +1,12 @@
 import React from 'react';
 import './TeamMember.scss';
 import Img from 'gatsby-image';
-
+import ScrollAnimation from 'react-animate-on-scroll';
 
 function TeamMember({ member, extraClasses }) {       
-    console.log (member.phone, 'PISSSS') 
     return (
         <section className="team-member">
+            <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
             <div className={"team-member--row " + extraClasses[0]}>
                 <div className="team-member--info">
                     <div className="team-member--title-wrapper">
@@ -15,7 +15,7 @@ function TeamMember({ member, extraClasses }) {
                             {
                                 member.specialization.map((item) => {
                                     return (
-                                        <li>{item}</li>
+                                        <li key={item}>{item}</li>
                                     )
                                 })
                             }
@@ -26,7 +26,7 @@ function TeamMember({ member, extraClasses }) {
                         {
                             member.education.map((item) => {
                                 return (
-                                    <li>{item}</li>
+                                    <li key={item}>{item}</li>
                                 )
                             })
                         }
@@ -34,16 +34,16 @@ function TeamMember({ member, extraClasses }) {
                     
                     <ul className="team-member--contacts">
                         <li>
-                            <div class="contacts--icon contacts--icon_instagram"></div>
-                            <a href={`https://www.instagram.com/${member.instagram}/`} class="member-contacts--text">@{member.instagram}</a>
+                            <div className="contacts--icon contacts--icon_instagram"></div>
+                            <a href={`https://www.instagram.com/${member.instagram}/`} className="member-contacts--text">@{member.instagram}</a>
                         </li>
                         <li>
-                            <div class="contacts--icon contacts--icon_phone"></div>
-                            <div class="member-contacts--items-wrapper">
+                            <div className="contacts--icon contacts--icon_phone"></div>
+                            <div className="member-contacts--items-wrapper">
                                     {
                                         member.phone.map((item) => {
                                             return (
-                                                <a href={`tel:${item}`} class="member-contacts--text">{item}</a>
+                                                <a href={`tel:${item}`} key={item} className="member-contacts--text">{item}</a>
                                             )
                                         })
                                     }
@@ -59,7 +59,11 @@ function TeamMember({ member, extraClasses }) {
                     />
                 </div>
             </div>
-            <div className="team-member--desc" dangerouslySetInnerHTML={{__html: member.bio.childMarkdownRemark.html }}/>
+            </ScrollAnimation>
+            <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
+                <div className="team-member--desc" dangerouslySetInnerHTML={{__html: member.bio.childMarkdownRemark.html }}/>
+            </ScrollAnimation>
+            
         </section>
     )
 }

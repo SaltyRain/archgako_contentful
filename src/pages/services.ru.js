@@ -9,10 +9,11 @@ import ContactsBlock from '../components/ContactsBlock/ContactsBlock'
 
 const ServicesPage = ({ data, location }) => {
     return (
-        <div className="container">
-            <h1 class="page--heading animate__animated animate__fadeIn">Услуги</h1>
-        </div>
-
+        <Layout location={location} lang="ru">
+            <div className="container">
+                <h1 className="page--heading animate__animated animate__fadeIn">Услуги</h1>
+            </div>
+        </Layout>
     )
 }
 

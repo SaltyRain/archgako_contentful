@@ -1,0 +1,57 @@
+@import "../../styles/variables";
+
+.banner {
+    color: $gray-brown;
+    height: calc(100vh - 70px);
+    position: relative;
+}
+
+.banner-logo {
+    position: absolute;
+    top: 40%;
+    left: 48%;
+    transform: translate(-50%, -40%);
+}
+.banner-logo--archgako {
+    font-size: 48px;
+}
+
+.banner-logo--sign {
+    font-size: 20px;
+    text-align: right;
+
+}
+
+
+@media (min-width: 400px) {
+    .banner-logo {
+        top: 35%;
+        left: 49%;
+        transform: translate(-50%, -40%);
+    }
+    .banner-logo--archgako {
+        font-size: 64px;
+    }
+    
+    .banner-logo--sign {
+        font-size: 28px;
+        text-align: right;
+    
+    }
+}
+
+@media (min-width: 768px) and (min-height: 600px) {
+    .banner-logo {
+        top: 40%;
+        left: 49%;
+        transform: translate(-50%, -40%);
+    }
+    .banner-logo--archgako {
+        font-size: 96px;
+    }
+    .banner-logo--sign {
+        font-size: 38px;
+        text-align: right;
+    
+    }
+}

@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 
 function AboutIndex({ lang, title, text, image, alt, buttontext }) {
     return (
-        <section className="about-index">
+        <section className="about-index container" id='about-index'>
             <div className="about-index--photo-wrapper">
                 <h2 className="about-index--title">{title}</h2>
                 <Img

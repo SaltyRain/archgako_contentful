@@ -4,6 +4,7 @@ import Container from '../container/container'
 
 import Header from '../Header/Header'
 import Footer from '../footer/footer'
+import ButtonUp from '../ButtonUp/ButtonUp'
 
 import './layout.scss'
 
@@ -21,6 +22,7 @@ class Template extends React.Component {
         <Header lang={lang} location={location} />
         <main>
           {children}
+          <ButtonUp/>
         </main>
         <Footer />
       </>

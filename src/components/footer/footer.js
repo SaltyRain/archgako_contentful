@@ -1,37 +1,101 @@
 import React from 'react'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 
 import './footer.scss'
 
-export default () => (
-<footer className="footer--wrapper">
-<div className="container">
-    <div className="footer">
-        <div className="footer--column footer--logo">
-            <span className="footer--logo_archgako site-logo--archgako">ARCHGAKÒ</span>
-            <span className="footer--logo_sign site-logo--sign">architecture and interior design</span>
-        </div>
-        
-        <div className="footer--column footer--tel">
-            <a href="tel:+79111620482" className="footer-tel--item">+7 911 162 04 82 RUS</a>
-            <a href="tel:+79216361451" className="footer-tel--item">+7 921 636 14 51 RUS</a>
-            <a href="+393668202223" className="footer-tel--item">+39 366 82 02 223 EU</a>
-        </div>
+function Footer({ lang, location }) {
+    const data = useStaticQuery(graphql`
+    query footerQuery {
+        ru: contentfulCompanyContacts(node_locale: {eq: "ru"}) {
+            address
+            email
+          }
+          en: contentfulCompanyContacts(node_locale: {eq: "en"}) {
+              address
+              email
+          }
+          allContentfulEmployee(filter: {node_locale: {eq: "ru"}}) {
+            nodes {
+              phone
+            }
+          }
+    }
+  `)
+  
+    
+    // const data = useStaticQuery(graphql`
+    // query footerQuery {
+    //    ru: contentfulCompanyContacts(node_locale: {eq: "ru"}) {
+    //       address
+    //       email
+    //     }
+    //     en: contentfulCompanyContacts(node_locale: {eq: "en"}) {
+    //         address
+    //         email
+    //     }
+    //     allContentfulEmployee(filter: {node_locale: {eq: "ru"}}) {
+    //       nodes {
+    //         phone
+    //       }
+    //     }
+    // }
+    // `)
+    console.log(data, 'DATA')
 
-        <div className="footer--column">
-            <a href="https://yandex.ru/maps/?pt=37.647298,55.761558&z=18&l=map" className="footer--adress">Москва, улица Макаренко, 5с 1а, <span className="footer--br">ст. м.Чистые пруды</span></a>
-            <a href="mailto:archgako@gmail.com" className="footer--mail">archgako@gmail.com</a>
-        </div>
+    let policy;
+    if (lang === 'ru') {
+        policy = 'Политика конфиденциальности'
+    }
+    else {
+        policy = 'Privacy policy';
+    }
+      
+    const phones = data.allContentfulEmployee.nodes.reduce((acc, node) => {
+        if (node.phone.length > 1) {
+        node.phone.forEach((node) => acc.push(node))
+        }
+        else
+        acc.push(node.phone[0]);
+        return acc;
+        }, []) 
 
-        <div className="footer--column">
-            <div className="footer--social-media">
-                <a href="https://www.instagram.com/archgako/"><img className="footer__social-media-item" src="./img/instagram icon.svg" alt="ARCHGAKO в instagram" width="50px"/></a>
-                <a href="https://www.facebook.com/ARCHGAKO/"><img className="footer__social-media-item" src="./img/facebook icon.svg" alt="ARCHGAKO на facebook" width="50px"/></a>
+    
+    return (
+        <footer class="footer--wrapper">
+            <div class="container">
+                <div class="footer">
+                    <div class="footer--column footer--logo">
+                        <span class="footer--logo_archgako site-logo--archgako">ARCHGAKÒ</span>
+                        <span class="footer--logo_sign site-logo--sign">architecture and interior design</span>
+                    </div>
+                    
+                    <div class="footer--column footer--tel">
+                        {
+                            phones.map((item) => {
+                                return (
+                                    <a key={item} href={`tel:${item}`} className='team-member-contacts--text'>{item}</a>
+                                )
+                            })
+                        }
+                    </div>
+            
+                    <div class="footer--column">
+                        <a href="https://yandex.ru/maps/?pt=37.647298,55.761558&z=18&l=map" class="footer--adress">Москва, улица Макаренко, 5с 1а, <span class="footer--br">ст. м.Чистые пруды</span></a>
+                        <a href="mailto:archgako@gmail.com" class="footer--mail">archgako@gmail.com</a>
+                    </div>
+            
+                    <div class="footer--column">
+                        <div class="footer--social-media">
+                            <a href="https://www.instagram.com/archgako/"><img class="footer__social-media-item" src="./img/instagram icon.svg" alt="ARCHGAKO в instagram" width="50px"/></a>
+                            <a href="https://www.facebook.com/ARCHGAKO/"><img class="footer__social-media-item" src="./img/facebook icon.svg" alt="ARCHGAKO на facebook" width="50px"/></a>
+                        </div>
+                        <a href="policy.html" class="footer--policy">Политика конфиденциальности</a>
+                        <span class="footer--copyright">2020 © Archgako</span>
+                    </div>
+                </div>
             </div>
-            <a href="policy.html" className="footer--policy">Политика конфиденциальности</a>
-            <span className="footer--copyright">2020 © Archgako</span>
-        </div>
-    </div>
-</div>
+        </footer>
+    )
+}
 
-</footer>
-)
+export default Footer

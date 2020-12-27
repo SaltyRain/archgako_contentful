@@ -7,7 +7,16 @@ import LanguageSelector from '../LanguageSelector/LanguageSelector'
 
 import './SideMenu.scss'
 
+const text = {
+    ru: 'Напишите нам',
+    en: 'Send message'
+}
 function SideMenu({lang, location}) {
+    let request;
+    if (lang === 'ru')
+        request = text.ru;
+    else
+        request = text.en;
     return (
         <div className="side-menu">
             <button className="side-menu--close close" type="button">
@@ -16,7 +25,7 @@ function SideMenu({lang, location}) {
 
             <Navigation lang={lang} location={location} />
 
-            <Link to='/contacts'  className="button request">Напишите нам</Link>
+            <Link to='/contacts'  className="button request">{request}</Link>
 
             <LanguageSelector
                 lang={lang}

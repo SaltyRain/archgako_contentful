@@ -5,13 +5,39 @@
 }
 
 @media (min-width: 1000px) {
-    .site-nav {
-        ul {
-            // display: block;
-        }
+    .site-nav--ul {
+        display: flex;
+        margin-right: 100px;
     }
     .site-nav--item {
         font-size: 18px;
+        margin-right: 20px;
+        border-bottom: 2px solid transparent;
+        margin-top: 6px;
+        padding-bottom: 6px;
+        transition: 0.2s;
+        &:hover {
+            border-bottom: 2px solid #262626;
+        }
+        &_active {
+            border-bottom: 2px solid #262626;
+        }
     }
+
 }
 
+
+@media (max-width: 1000px) {
+    .site-nav {
+        // margin-top: 20vh;
+        order: 2;
+        margin-left: 10%;
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .site-nav--item {
+        margin-bottom: 12px;
+    }
+}

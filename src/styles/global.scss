@@ -40,14 +40,19 @@ img {
 
 
 p {
+    // font-family: 'Raleway', sans-serif;
+    font-family: 'Lora', serif;
     font-size: 15px;
 }
 @media (min-width: 1400px) {
     p {
-        font-size: 17px;
+        font-size: 16px;
     }
 }
 
+.arsenal {
+    font-family: "Arsenal-Regular", "Roboto", sans-serif;
+}
 // button {
 //     &:focus {
 //         outline-color: $light-gray;
@@ -156,3 +161,62 @@ p {
     }
 }
 
+
+
+
+// ВРЕМЕННО ТУТ
+
+.button {
+    font-size: 18px;
+    padding: 12px 40px;
+    background-color: #AF9888;
+    color: #FFFFFF;
+    transition: 0.2s;
+    display: inline-block;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.button:hover, .button:focus {
+    background-color: #C3B5AA;
+    transition: 0.2s;
+}
+
+.button_disable {
+    color:  #C4C4C4;
+}
+
+.button_open-more {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button_big-margin {
+    margin-top: 32px;
+    margin-bottom: 120px;
+}
+
+.button_center {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: $light-brown;
+    border-radius: 50%;
+    text-align: center;
+    margin: 60px auto 0 auto;
+}
+
+.bg {
+    width: 100%;
+    background-color: rgba(195, 181, 170, 0.3);
+    margin-top: 76px;
+    padding-bottom: 70px;
+}

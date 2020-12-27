@@ -2,6 +2,7 @@ import React from 'react'
 import './ProjectPreview.scss';
 import Img from 'gatsby-image'
 import { Link } from 'gatsby';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const textRu = {
     year: 'г',
@@ -23,6 +24,7 @@ function ProjectPreview ({ lang, project }) {
         text = textEn;
 
     return (
+        <ScrollAnimation  animateIn='fadeIn' animateOnce={true}>
         <div className="project-preview">
             <div className="project-preview--baner">
                 <Img  fluid={project.previewImage.fluid} alt={project.previewImage.title}/>
@@ -47,7 +49,7 @@ function ProjectPreview ({ lang, project }) {
                     <div className="project-preview--scheme">
                         <Img fluid={project.scheme.fluid} alt={project.scheme.title}/>
                     </div>
-                    <ul className="project-preview--explication">
+                    <ol className="project-preview--explication">
                         {
                             project.explication.map((item) => {
                                 return (
@@ -57,16 +59,15 @@ function ProjectPreview ({ lang, project }) {
                                 )
                             })
                         }
-                    </ul>
+                    </ol>
                     <Link className="project-preview--link" to={`${location.pathname}/` + `${project.slug.toLowerCase()}`}>
                         <span className="project-preview--link-text">{text.toProject}</span>
                         <span className="project-preview--link-arrow" dangerouslySetInnerHTML={{__html: '&#10230'}}></span>
                     </Link>
                 </div>
             </div>
-            
-
         </div>
+        </ScrollAnimation>
     )
 }
 

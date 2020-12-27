@@ -2,6 +2,10 @@
     margin-bottom: 82px;
 }
 
+.project-preview--title {
+    font-family: "Arsenal-Bold";
+    text-transform: uppercase;
+}
 .project-preview--baner {
     img {
         width: 100%;
@@ -26,10 +30,7 @@
     }
 }
 
-.project-preview--name {
-    font-family: "Arsenal-Bold";
-    text-transform: uppercase;
-}
+
 
 .project-preview--city {
     display: block;
@@ -56,8 +57,24 @@
     }
 }
 .project-preview--explication {
+    display: inline-block;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0;
     font-size: 14px;
+
+    // list-style-type: decimal !important;
 }
+.project-preview--explication-item {
+    // display: inline-block;
+    float: left;
+    margin-left: 20px;
+    &::marker {
+        color: #999999;
+    }
+}
+
 .project-preview--scheme-wrapper {
     margin-top: 48px;
 }

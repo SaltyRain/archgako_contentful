@@ -15,7 +15,7 @@ function BlogPostPreview({locaiton, data}) {
                     />
                 </div>
                 <h3 className="blog-article--title">{data.title}</h3>
-                <p className="blog-article--desc">{data.description.description}</p>
+                <p className="blog-article--desc arsenal">{data.description.description}</p>
                 <span className="blog-article--date">{data.publishDate}</span>
             </Link>
         </article>

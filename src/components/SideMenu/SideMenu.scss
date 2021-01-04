@@ -1,49 +1,57 @@
 // Mobile
-@media (max-width: 1000px) {
     .side-menu {
-        display: none;
+        // display: none;
         top: 0;
-        // right: 0;
-        left: 0;
-        position: absolute;
+        right: 0;
+        position: fixed;
         background-color: #C3B5AA;
-        height: 100vh;
+        height: 100%;
         width: 100%;
-        z-index: 1;
-        font-size: 20px;
+        z-index: 2;
+        font-size: 18px;
 
-        flex-direction: column !important;
-        justify-content: space-between !important;
+        // display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         overflow: hidden;
 
-        padding: 20px 15px;
+        padding: 100px 20px 15px;
+        transition: .5s;
+        &_closed {
+            width: 0;
+            right: -60px;
+        }
     }
-    .close {
 
+
+    .close {
         outline: 0;
         border: 0;
         background-color: transparent;
-        font-size: 30px;
-        // width: 10px;
         position: absolute;
-        top: 15px;
-        right: 20px;
+        top: 6px;
+        right: 12px;
+        cursor: pointer;
+    }
+    .close--inner {
+        color:#262626;
+        font-size: 54px;
     }
 
-
-
     .request {
-        display: block !important;
+        display: block;
         margin-left: auto;
         margin-right: auto;
         text-align: center;
-        background-color: #fff !important;
-        color: #262626 !important;
+        background-color: #fff;
+        color: #262626;
         width: 90vw;
-        // position: absolute !important;
-        // bottom: 10px;
         align-self: center;
+        margin-top: 15px;
 
+    }
+
+    .side-menu--order-3 {
         order: 3;
     }
 
@@ -54,16 +62,17 @@
         order: 1;
         margin-left: 10%;
     }
-}
+
 
 // Desctop
 @media (min-width: 1000px) {
     .side-menu {
+        position: static;
         display: flex;
         flex-direction: row;
-        // justify-content: center;
         align-items: center;
         margin-top: 0;
+        padding: 0;
         background-color: transparent;
     }
     .side-menu--close {
@@ -84,19 +93,20 @@
         right: 320px;
     }
     .request {
-        margin-right: 34px;
+        // margin-right: 34px;
+        font-size: 18px;
+        padding: 12px 40px;
+        background-color: #AF9888;
+        color: #FFFFFF;
+        transition: 0.2s;
+        display: inline-block;
+        border: 1px solid transparent;
+        cursor: pointer;
+        width: 200px;
     }
 }
 
 @media (min-width: 1180px) {
-    .site-nav {
-        ul {
-            margin-right: 130px;
-            li {
-                margin-left: 14px;
-            }
-        }
-    }
     .header--call-button {
         right: 360px;
     }

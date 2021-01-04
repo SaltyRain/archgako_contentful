@@ -36,15 +36,15 @@ function Navigation({ lang, location }) {
   }
 
   return (
-    <nav className="header--site-nav site-nav">
+    <nav className="site-nav">
       <ul className='site-nav--ul'>
         {localeNavItems.map((item) => {
           if (lang === 'ru')
             return (
-              <li key={item} >
+              <li key={item} className="site-nav--li">
                 <Link 
                 to={'/' + `${navTitleToLink[item]}`}
-                className="site-nav--item"
+                className="site-nav--a"
                 activeClassName = 'site-nav--item_active'
                 
                 >{item}</Link>
@@ -52,10 +52,10 @@ function Navigation({ lang, location }) {
             )
           else
             return (
-              <li key={item} >
+              <li key={item} className="site-nav--li">
                 <Link 
                 to={`${location.pathname}` + `${item.toLowerCase()}`}
-                className="site-nav--item"
+                className="site-nav--a"
                 activeClassName = 'site-nav--item_active'
                 >
                   {item}

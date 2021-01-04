@@ -11,9 +11,12 @@
     margin-top: 48px;
 }
 .about-country--title {
-    font-family: "Arsenal-Bold";
+    font-family: "Arsenal-Regular";
+    // font-family: "Arsenal-Bold";
     text-transform: uppercase;
     margin-bottom: 24px;
+    // font-weight: 600;
+    font-weight: 300;
 }
 
 @media (min-width: 660px) {

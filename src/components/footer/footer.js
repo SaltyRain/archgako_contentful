@@ -21,25 +21,6 @@ function Footer({ lang, location }) {
           }
     }
   `)
-  
-    
-    // const data = useStaticQuery(graphql`
-    // query footerQuery {
-    //    ru: contentfulCompanyContacts(node_locale: {eq: "ru"}) {
-    //       address
-    //       email
-    //     }
-    //     en: contentfulCompanyContacts(node_locale: {eq: "en"}) {
-    //         address
-    //         email
-    //     }
-    //     allContentfulEmployee(filter: {node_locale: {eq: "ru"}}) {
-    //       nodes {
-    //         phone
-    //       }
-    //     }
-    // }
-    // `)
     console.log(data, 'DATA')
 
     let policy;
@@ -81,7 +62,7 @@ function Footer({ lang, location }) {
             
                     <div class="footer--column">
                         <a href="https://yandex.ru/maps/?pt=37.647298,55.761558&z=18&l=map" class="footer--adress">Москва, улица Макаренко, 5с 1а, <span class="footer--br">ст. м.Чистые пруды</span></a>
-                        <a href="mailto:archgako@gmail.com" class="footer--mail">archgako@gmail.com</a>
+                        <a href="mailto:archgako@gmail.com" class="footer--mail">{data.ru.adress}</a>
                     </div>
             
                     <div class="footer--column">

@@ -13,9 +13,9 @@ import './Header.scss'
 
 function Header({ lang, location }) {
   return (
-    <Animated>
+    
     <header className="header container" id="header">
-      
+        {/* <Animated> */}
       <Link to="/"  className="header--site-logo site-logo">
         <SiteLogo
           wrapper="header--site-logo"
@@ -26,7 +26,8 @@ function Header({ lang, location }) {
 
       <div className="header--button-wrapper">
             <a href="tel:+79111620482" className="header--call-button">
-                <img className="header--call-icon" src={PhoneIcon} alt="call the studio" width="30px" height="30px"/>
+                <span className="header--call-button-phone">+7 (911) 162-04-82</span>
+                <img className="header--call-button-icon" src={PhoneIcon} alt="call the studio" width="30px" height="30px"/>
             </a>
             <Hamburger/>
 
@@ -38,9 +39,9 @@ function Header({ lang, location }) {
       />
 
       
- 
+      {/* </Animated> */}
     </header>
-    </Animated>
+    
   )
 }
 

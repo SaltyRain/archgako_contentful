@@ -27,27 +27,32 @@ function SideMenu({lang, location}) {
     
     return (
         <div className="side-menu">
-            <button className="side-menu--close close" type="button" onClick={closeMenu}>
-                <span className="close--inner">˟</span>
+            <button className="side-menu--close" type="button" onClick={closeMenu}>
+                <span className="side-menu--close-inner">˟</span>
             </button>
-
-            <Navigation lang={lang} location={location} />
-
-            {/* <div className="side-menu--order-3"> */}
-            <HeaderMobileContacts
-                lang={lang}
-                location={location}
-            />
-            <Link to='/contacts'  className="request button">{request}</Link>
-
-            {/* </div> */}
-
 
             <LanguageSelector
                 lang={lang}
                 className={'language-selector'}
                 location={location}
             />
+
+            <Navigation 
+            className = 'side-menu--site-nav'
+            lang={lang} 
+            location={location} />
+
+            {/* <div className="side-menu--order-3"> */}
+            <HeaderMobileContacts
+                lang={lang}
+                location={location}
+            />
+            <Link to='/contacts'  className="side-menu--request button">{request}</Link>
+
+            {/* </div> */}
+
+
+
     
 
 

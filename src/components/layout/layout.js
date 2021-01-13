@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Container from '../container/container'
+import Container from '../Container/Container'
 
 import Header from '../Header/Header'
-import Footer from '../footer/footer'
+import Footer from '../Footer/Footer'
 import ButtonUp from '../ButtonUp/ButtonUp'
 
 import './layout.scss'

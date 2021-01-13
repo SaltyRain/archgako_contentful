@@ -5,10 +5,6 @@
     align-items: center;
 
     height: 70px;
-
-    // position: relative;
-    // z-index: 1;
-    // position: fixed;
     z-index: 3;
 }
 
@@ -29,7 +25,6 @@
 }
 
 .header--call-button {
-    margin-right: 22px;
     margin-top: 1px;
     font-size: 18px;
 }
@@ -43,10 +38,44 @@
     display: none;
 }
 
+.header--info-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header--request {
+    margin-left: 22px;
+    margin-right: 22px;
+}
 
 
-@media (min-width: 1000px) {
+.header--hamburger {
+    display: none;
+}
+
+.header--site-nav {
+    li {
+        margin-right: 24px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+}
+
+@media (max-width: 1000px) {
     .header--hamburger {
+        display: block;
+        margin-left: 20px;
+    }
+    .header--site-nav {
+        display: none;
+    }
+    .header--language-selector {
+        display: none;
+    }
+    .header--request {
         display: none;
     }
 }

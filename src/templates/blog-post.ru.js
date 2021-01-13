@@ -1,15 +1,15 @@
 import React from 'react'
-import Layout from '../components/layout/layout'
+import Layout from '../components/Layout/Layout'
 import '../styles/templates/blog-post.scss'
 
 function BlogPostTemplate({ location, data }) {
     return (
         <Layout location={location} lang="ru">
             <article className="blog-post">
-                <h1 className="page--heading">Heading</h1>
+                <h1 className="page--heading">{data.contentfulBlogPost.title}</h1>
                 <p className="blog-post--r-time">
                     Время прочтения:
-                    <span className="brown">{data.contentfulBlogPost.readingTime} минут</span>
+                    <span className="brown"> {data.contentfulBlogPost.readingTime} минут</span>
                 </p>
                 <div
                 className='blog-post--content'

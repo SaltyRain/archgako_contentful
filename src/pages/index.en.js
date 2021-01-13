@@ -4,7 +4,9 @@ import { Helmet } from 'react-helmet'
 import Img from 'gatsby-image'
 
 import Layout from '../components/Layout/Layout'
+import Banner from '../components/Banner/Banner'
 import AboutIndex from '../components/AboutIndex/AboutIndex' 
+import Advantages from '../components/Advantages/Advantages'
 
 
 import '../styles/pages/index.scss'
@@ -12,18 +14,19 @@ import '../styles/pages/index.scss'
 const IndexPage = ({ data, location }) => {
   return (
     <Layout location={location} lang="en">
-      <div className="container">
+        <Banner/>
         <AboutIndex 
-        lang="en"
-        title = {data.ru.edges[0].node.title}
-        text = {data.ru.edges[0].node.shortAbout.childMarkdownRemark.html}
-        image = {data.aboutImageIndex.edges[0].node.aboutImageIndex.fluid}
-        alt = {data.aboutImageIndex.edges[0].node.aboutImageIndex.title}
-        buttontext = "Подробнее"
+          lang="en"
+          title = {data.en.edges[0].node.title}
+          text = {data.en.edges[0].node.shortAbout.childMarkdownRemark.html}
+          image = {data.aboutImageIndex.edges[0].node.aboutImageIndex.fluid}
+          alt = {data.aboutImageIndex.edges[0].node.aboutImageIndex.title}
+          buttontext = "More"
         />
-      </div>
-
-      
+        <Advantages
+          sectionHeading = {data.allContentfulHeading.nodes}
+          advantages = {data.allContentfulAdvantage.nodes}
+        />
 
     </Layout>
   )
@@ -33,7 +36,7 @@ export default IndexPage
 
 export const indexPageQuery = graphql`
   query indexEnPageQuery {
-    ru: allContentfulAboutStudio(filter: {node_locale: {eq: "en"}}) {
+    en: allContentfulAboutStudio(filter: {node_locale: {eq: "en"}}) {
       edges {
         node {
           title
@@ -54,6 +57,25 @@ export const indexPageQuery = graphql`
             }
           }
         }
+      }
+    }
+    allContentfulHeading(filter: {slug: {eq: "advantages"}, node_locale: {eq: "en"}}) {
+      nodes {
+        title
+      }
+    }
+    allContentfulAdvantage(filter: {node_locale: {eq: "en"}}, sort: {order: ASC, fields: createdAt}) {
+      nodes {
+        title
+        description
+        id
+        image {
+          fixed(height: 85, width: 85) {
+            ...GatsbyContentfulFixed
+          }
+          description
+        }
+        
       }
     }
   }

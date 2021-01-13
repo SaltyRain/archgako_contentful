@@ -24,7 +24,7 @@
     text-align: center;
     background-color: #fff;
     color: #262626;
-    width: 90vw;
+    width: 100%;
     align-self: center;
     margin-top: 15px;
 }
@@ -45,7 +45,8 @@
 
 @media (max-width: 1000px) {
     .side-menu {
-        display: flex;
+
+        // display: flex;
         flex-direction: column;
         justify-content: space-between;
 
@@ -62,7 +63,7 @@
 
         z-index: 2;
         overflow: hidden;
-        padding: 100px 20px 15px;
+        padding: 100px 5vw 15px;
     }
 }
 

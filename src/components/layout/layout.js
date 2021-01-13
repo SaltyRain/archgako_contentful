@@ -24,7 +24,7 @@ class Template extends React.Component {
           {children}
           <ButtonUp/>
         </main>
-        <Footer />
+        <Footer lang={lang} />
       </>
     )
   }

@@ -3,7 +3,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 
 import './Navigation.scss'
 
-function Navigation({ lang, location }) {
+function Navigation({ lang, location, className }) {
   const data = useStaticQuery(graphql`
     query navQuery {
       ru: allContentfulNavigation(filter: { node_locale: { eq: "ru" } }) {
@@ -65,7 +65,6 @@ function Navigation({ lang, location }) {
       })}
     </ul>
   </nav>
-    
   )
 }
 

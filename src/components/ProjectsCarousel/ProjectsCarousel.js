@@ -1,5 +1,6 @@
 import React from 'react'
 import './ProjectsCarousel.scss'
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel'
 
 function ProjectsCarousel() {

@@ -5,18 +5,18 @@
     align-items: center;
 
     height: 70px;
-
-    position: relative;
-    // position: fixed;
+    z-index: 3;
 }
 
 .header--archgako {
-    font-size: 22px;
+    font-size: 29px;
+    margin-top: 6px;
 }
 
 .header--sign {
-    font-size: 12px;
-    margin-left: 20px;
+    font-size: 16px;
+    margin-left: 22px;
+    margin-top: -3px;
 }
 
 .header--button-wrapper {
@@ -25,17 +25,70 @@
 }
 
 .header--call-button {
-    margin-right: 22px;
-    margin-top: -1px;
+    
+    font-size: 18px;
 }
 
-.header--call-icon {
+.header--call-button-icon {
+    margin-top: 7px;
     width: 30px;
     height: 30px;
 }
 
-@media (min-width: 1000px) {
+.header--call-button-phone {
+    display: none;
+}
+
+.header--info-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header--request {
+    margin-left: 22px;
+    margin-right: 22px;
+}
+
+
+.header--hamburger {
+    display: none;
+}
+
+.header--site-nav {
+    li {
+        margin-right: 24px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+}
+
+@media (max-width: 1000px) {
     .header--hamburger {
+        display: block;
+        margin-left: 20px;
+    }
+    .header--site-nav {
+        display: none;
+    }
+    .header--language-selector {
+        display: none;
+    }
+    .header--request {
         display: none;
     }
 }
+
+@media (min-width: 1300px) {
+    .header--call-button-icon {
+        display: none;
+    }
+    
+    .header--call-button-phone {
+        display: block;
+    }
+    
+}
+

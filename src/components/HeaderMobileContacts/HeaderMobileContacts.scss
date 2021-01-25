@@ -1,0 +1,32 @@
+.mobile-contacts {
+    margin-top: 40px;
+}
+.mobile-contacts--smedia-item {
+    width: 30px;
+    margin-bottom: 10px;
+    &:first-child {
+        margin-right: 15px;
+    }
+}
+
+.mobile-contacts--text {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.mobile-contacts--item {
+    margin-top: 10px;
+}
+
+.mobile-contacts--address {
+    max-width: 160px;
+}
+
+
+@media (min-width: 1000px) {
+    .mobile-contacts {
+        display: none;
+    }
+}

@@ -5,10 +5,9 @@ import './LanguageSelector.scss'
 
 function LanguageSelector({ lang, location, className }) {
   return (
-    <div className="language-selector">
+    <div className={"language-selector" + " " + className }>
       <span>
       <Link
-        className={className}
         to={location.pathname.replace('/' + lang + '/', '/')}
         activeStyle={{ textDecoration: 'underline' }}
         // partiallyActive={true}
@@ -24,6 +23,7 @@ function LanguageSelector({ lang, location, className }) {
         : `/en${location.pathname}`
       }
       activeStyle={{ textDecoration: 'underline' }}
+
       partiallyActive={true}
       
       >

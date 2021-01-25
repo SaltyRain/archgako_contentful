@@ -1,0 +1,18 @@
+@import '../variables';
+
+.full-article--body {
+    p {
+        line-height: 140%;
+    }
+    img {
+        width: 100%;
+        max-height: 500px;
+        -o-object-fit: cover;
+        object-fit: cover;
+        margin-top: 32px;
+        margin-bottom: 48px;
+    }
+}
+.article--brown-text {
+    color: $brown;
+}

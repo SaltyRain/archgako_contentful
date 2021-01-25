@@ -2,8 +2,13 @@ import React from 'react';
 import './TeamMember.scss';
 import Img from 'gatsby-image';
 import ScrollAnimation from 'react-animate-on-scroll';
+import PhoneNormalize from '../PhoneNormalize/PhoneNormalize'
 
 function TeamMember({ member, extraClasses }) {       
+    let phones = member.phone;
+    console.log(phones, 'НОМЕРА МЕМБЕРА')
+    phones.forEach(phone => PhoneNormalize(phone));
+    console.log(phones, 'НОМЕРА МЕМБЕРА после функции')
     return (
         <section className="team-member">
             <ScrollAnimation animateIn='fadeIn' animateOnce={true}>

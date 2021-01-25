@@ -37,34 +37,35 @@ function Navigation({ lang, location }) {
 
   return (
     <nav className="header--site-nav site-nav">
-      <ul className='site-nav--ul'>
-        {localeNavItems.map((item) => {
-          if (lang === 'ru')
-            return (
-              <li key={item} >
-                <Link 
-                to={'/' + `${navTitleToLink[item]}`}
-                className="site-nav--item"
-                activeClassName = 'site-nav--item_active'
-                
-                >{item}</Link>
+    <ul className='site-nav--ul'>
+      {localeNavItems.map((item) => {
+        if (lang === 'ru')
+          return (
+            <li key={item}>
+              <Link 
+              to={'/' + `${navTitleToLink[item]}`}
+              className="site-nav--item"
+              activeClassName = 'site-nav--item_active'
+              
+              >{item}</Link>
+            </li>
+          )
+        else
+          return (
+            <li key={item}>
+              <Link 
+              to={'/' + 'en/' + `${item.toLowerCase()}`}
+              className="site-nav--item"
+              activeClassName = 'site-nav--item_active'
+              >
+                {item}
+              </Link>
               </li>
-            )
-          else
-            return (
-              <li key={item} >
-                <Link 
-                to={`${location.pathname}` + `${item.toLowerCase()}`}
-                className="site-nav--item"
-                activeClassName = 'site-nav--item_active'
-                >
-                  {item}
-                </Link>
-              </li>
-            )
-        })}
-      </ul>
-    </nav>
+          )
+      })}
+    </ul>
+  </nav>
+    
   )
 }
 

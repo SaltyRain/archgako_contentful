@@ -1,0 +1,42 @@
+@import '../../styles/variables';
+.request-form {
+
+}
+
+.request-form--row {
+    display: flex;
+    flex-direction: column;
+}
+
+.request-form--col {
+
+}
+
+.request-form--title {
+    font-size: 22px;
+    margin-bottom: 0;
+}
+
+.request-form--desc {
+    color: $brown;
+    font-size: 18px;
+    margin-top: 12px;
+}
+
+.request-form--form {
+}
+
+@media (min-width: 620px) {
+    .request-form--row {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .request-form--col {
+        &:first-child {
+            margin-right: 18px;
+        }
+        &:last-child {
+            margin-left: 18px;
+        }
+    }
+}

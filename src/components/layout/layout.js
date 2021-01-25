@@ -6,6 +6,7 @@ import Header from '../Header/Header'
 import Footer from '../footer/footer'
 import ButtonUp from '../ButtonUp/ButtonUp'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './layout.scss'
 
 class Template extends React.Component {

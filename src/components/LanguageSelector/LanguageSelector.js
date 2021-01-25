@@ -11,15 +11,19 @@ function LanguageSelector({ lang, location, className }) {
         className={className}
         to={location.pathname.replace('/' + lang + '/', '/')}
         activeStyle={{ textDecoration: 'underline' }}
-        partiallyActive={true}
+        // partiallyActive={true}
       >
         ru
       </Link>
       <span className="language-selector--dash">|</span> 
       <Link 
       className={className} 
-      to={`/en${location.pathname}`}
-      activeStyle={{ color: "red" }}
+      to={
+        location.pathname.includes('/en')
+        ? `${location.pathname}`
+        : `/en${location.pathname}`
+      }
+      activeStyle={{ textDecoration: 'underline' }}
       partiallyActive={true}
       
       >

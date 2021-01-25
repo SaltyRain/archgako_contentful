@@ -5,18 +5,23 @@ import Img from 'gatsby-image'
 
 import Layout from '../components/Layout/Layout'
 import Banner from '../components/Banner/Banner'
+import ProjectsCarousel from '../components/ProjectsCarousel/ProjectsCarousel'
 import AboutIndex from '../components/AboutIndex/AboutIndex' 
 import Advantages from '../components/Advantages/Advantages'
+import RequestForm from '../components/RequestForm/RequestForm'
+
 
 
 import '../styles/pages/index.scss'
 
 const IndexPage = ({ data, location }) => {
+  const language = 'ru';
   return (
-    <Layout location={location} lang="ru">
+    <Layout location={location} lang={language}>
         <Banner/>
+        <ProjectsCarousel/>
         <AboutIndex 
-          lang="ru"
+          lang={language}
           title = {data.ru.edges[0].node.title}
           text = {data.ru.edges[0].node.shortAbout.childMarkdownRemark.html}
           image = {data.aboutImageIndex.edges[0].node.aboutImageIndex.fluid}
@@ -27,6 +32,8 @@ const IndexPage = ({ data, location }) => {
           sectionHeading = {data.allContentfulHeading.nodes}
           advantages = {data.allContentfulAdvantage.nodes}
         />
+        <RequestForm data = {data.contentfulForm} lang = {language} wrapper='container section--index'/>
+        
 
     </Layout>
   )
@@ -75,8 +82,13 @@ export const indexPageQuery = graphql`
           }
           description
         }
-        
       }
+    }
+    contentfulForm(title: {eq: "Обратиться в студию"}) {
+      title
+      description
+      formFields
+      privacy
     }
   }
 `

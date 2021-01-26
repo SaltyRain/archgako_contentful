@@ -5,15 +5,16 @@
 .project-preview--title {
     font-family: "Arsenal-Bold";
     text-transform: uppercase;
+    margin-top: 0;
 }
 .project-preview--baner {
-    img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-    }
-    picture {
-        height: 220px;
+    height: 60vw;
+    max-height: 300px;
+    margin-bottom: 24px;
+}
+@media (min-width: 768px) {
+    .project-preview--baner {
+        margin-bottom: 32px;
     }
 }
 
@@ -96,12 +97,6 @@
 
 
 @media (min-width: 768px) {
-    .project-preview--baner {
-        margin-bottom: 32px;
-        img {
-            height: 260px;
-        }
-    }
     .project-preview--row {
         grid-template-columns: 1fr 1fr;
         column-gap: 32px;
@@ -124,9 +119,7 @@
 
 @media (min-width: 1000px) {
     .project-preview--baner {
-        img {
-            height: 322px;
-        }
+        margin-bottom: 48px;
     }
     .project-preview {
         margin-bottom: 130px;

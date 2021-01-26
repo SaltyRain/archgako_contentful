@@ -36,7 +36,7 @@ function TeamMember({ member, extraClasses }) {
                     <ul className="team-member--contacts">
                         <li>
                             <div className="contacts--icon contacts--icon_instagram"></div>
-                            <a href={`https://www.instagram.com/${member.instagram}/`} className="team-member-contacts--text">@{member.instagram}</a>
+                            <a href={`https://www.instagram.com/${member.instagram}/`} className="team-member-contacts--text"><span>@{member.instagram}</span></a>
                         </li>
                         <li>
                             <div className="contacts--icon contacts--icon_phone"></div>
@@ -44,7 +44,7 @@ function TeamMember({ member, extraClasses }) {
                                     {
                                         member.phone.map((item) => {
                                             return (
-                                                <a href={`tel:${item}`} key={item} className="team-member-contacts--text">{PhoneNormalize(item)[0]} <span className="brown-text">{PhoneNormalize(item)[1]}</span></a>
+                                                <a href={`tel:${item}`} key={item} className="team-member-contacts--text"><span>{PhoneNormalize(item)[0]} <span className="brown-text">{PhoneNormalize(item)[1]}</span></span></a>
                                             )
                                         })
                                     }

@@ -26,9 +26,7 @@ function ProjectPreview ({ lang, project }) {
     return (
         <ScrollAnimation  animateIn='fadeIn' animateOnce={true}>
         <div className="project-preview">
-            <div className="project-preview--baner">
-                <Img  fluid={project.previewImage.fluid} alt={project.previewImage.title}/>
-            </div>
+            <Img className='project-preview--baner' fluid={project.previewImage.fluid} alt={project.previewImage.title}/>
 
             <div className="project-preview--row">
                 <div className="project-preview--column">

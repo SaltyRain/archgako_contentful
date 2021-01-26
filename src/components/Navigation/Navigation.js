@@ -46,7 +46,7 @@ function Navigation({ lang, location, className }) {
               to={'/' + `${navTitleToLink[item]}`}
               className="site-nav--item"
               activeClassName = 'site-nav--item_active'
-              
+              partiallyActive={true}
               >{item}</Link>
             </li>
           )
@@ -57,6 +57,7 @@ function Navigation({ lang, location, className }) {
               to={'/' + 'en/' + `${item.toLowerCase()}`}
               className="site-nav--item"
               activeClassName = 'site-nav--item_active'
+              partiallyActive={true}
               >
                 {item}
               </Link>

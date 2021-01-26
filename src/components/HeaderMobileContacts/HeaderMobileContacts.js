@@ -43,8 +43,8 @@ function HeaderMobileContacts({lang, location}) {
     return (
         <div className="mobile-contacts">
             <div className="mobile-contacts--smedia">
-                <a href="https://www.instagram.com/archgako/"><img class="mobile-contacts--smedia-item" src={InstIcon} alt="ARCHGAKO в instagram" width="30px"/></a>   
-                <a href="https://www.facebook.com/ARCHGAKO/"><img class="mobile-contacts--smedia-item" src={FbIcon} alt="ARCHGAKO на facebook" width="30px"/></a>
+                <a href="https://www.instagram.com/archgako/"><img className="mobile-contacts--smedia-item" src={InstIcon} alt="ARCHGAKO в instagram" width="30px"/></a>   
+                <a href="https://www.facebook.com/ARCHGAKO/"><img className="mobile-contacts--smedia-item" src={FbIcon} alt="ARCHGAKO на facebook" width="30px"/></a>
             </div>
 
             <div className="mobile-contacts--phones">
@@ -57,7 +57,7 @@ function HeaderMobileContacts({lang, location}) {
             }
             </div>
 
-            <a href="mailto:archgako@gmail.com" class="mobile-contacts--text mobile-contacts--item">{data.ru.email}</a>
+            <a href="mailto:archgako@gmail.com" className="mobile-contacts--text mobile-contacts--item">{data.ru.email}</a>
             
         </div>
     )

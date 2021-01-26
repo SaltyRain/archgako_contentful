@@ -73,7 +73,7 @@ function Footer({ lang }) {
                         {
                             phones.map((item) => {
                                 return (
-                                    <a key={item} href={`tel:${item}`} className='team-member-contacts--text footer--tel-link'>{PhoneNormalize(item)}</a>
+                                    <a key={item} href={`tel:${item}`} className='team-member-contacts--text footer--tel-link'><span>{PhoneNormalize(item)}</span></a>
                                 )
                             })
                         }

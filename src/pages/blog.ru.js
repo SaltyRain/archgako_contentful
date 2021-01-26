@@ -78,7 +78,7 @@ query blogRuPageQuery {
       nodes {
         title
         heroImage {
-          fluid(quality: 100) {
+          fluid(maxWidth: 700) {
             ...GatsbyContentfulFluid
           }
           description

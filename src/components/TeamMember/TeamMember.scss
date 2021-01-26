@@ -97,11 +97,14 @@
     display: block;
     margin-left: 12px;
     margin-top: 6px;
-    border-bottom: 1px solid transparent;
     transition: 0.2s;
-    &:hover {
-        border-bottom: 1px solid #262626;
+    span {
+        border-bottom: 1px solid transparent;
+        &:hover {
+            border-bottom: 1px solid #262626;
+        }
     }
+
 }
 
 

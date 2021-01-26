@@ -17,13 +17,13 @@ function ContactsBlock ({ mainInfo, phones, form }) {
                     <li className="contacts--item_margin-bot">
                         <div className="contacts--icon contacts--icon_location contacts--icon_big-margin"/>
                         <div className="team-member-contacts--items-wrapper">
-                            <a href={`https://yandex.ru/maps/?pt=37.647298,55.761558&z=18&l=map`} className="team-member-contacts--text">{mainInfo.address}</a>
+                            <a href={`https://yandex.ru/maps/?pt=37.647298,55.761558&z=18&l=map`} className="team-member-contacts--text"><span>{mainInfo.address}</span></a>
                         </div>
                     </li>
                     <li className="contacts--item_margin-bot">
                         <div className="contacts--icon contacts--icon_mailbox contacts--icon_big-margin"/>
                         <div className="team-member-contacts--items-wrapper">
-                                <a href={`mailto:${mainInfo.email}`} className="team-member-contacts--text">{mainInfo.email}</a>
+                                <a href={`mailto:${mainInfo.email}`} className="team-member-contacts--text"><span>{mainInfo.email}</span></a>
                         </div>
                     </li>
                     <li className="contacts--item_margin-bot">
@@ -32,7 +32,7 @@ function ContactsBlock ({ mainInfo, phones, form }) {
                             {
                                 phones.map((item) => {
                                     return (
-                                        <a key={item} href={`tel:${item}`} className='team-member-contacts--text'>{PhoneNormalize(item)[0]} <span className="brown-text">{PhoneNormalize(item)[1]}</span></a>
+                                        <a key={item} href={`tel:${item}`} className='team-member-contacts--text'><span>{PhoneNormalize(item)[0]} <span className="brown-text">{PhoneNormalize(item)[1]}</span></span></a>
                                     )
                                 })
                             }
@@ -40,7 +40,7 @@ function ContactsBlock ({ mainInfo, phones, form }) {
                     </li>
                     <li>
                         <div className="contacts--icon contacts--icon_instagram contacts--icon_big-margin"></div>
-                        <a href={`https://www.instagram.com/${mainInfo.instagram}`} className="team-member-contacts--text">@{mainInfo.instagram}</a>
+                        <a href={`https://www.instagram.com/${mainInfo.instagram}`} className="team-member-contacts--text"><span>@{mainInfo.instagram}</span></a>
                     </li>
                 </ul>
             </div>

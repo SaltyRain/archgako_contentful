@@ -5,6 +5,7 @@ import './footer.scss'
 
 import instLogo from '../../../static/images/smedia/instagram.svg'
 import fbLogo from '../../../static/images/smedia/facebook.svg'
+import PhoneNormalize from '../PhoneNormalize/PhoneNormalize'
 
 function Footer({ lang }) {
     const general = useStaticQuery(graphql`
@@ -32,16 +33,21 @@ function Footer({ lang }) {
           }
     }
   `)
-    let address;
+    let address, adr1, adr2;
     let policy;
 
     if (lang === 'ru') {
         policy = 'Политика конфиденциальности';
-        address = general.ruAdress;
+        address = general.ruAdress.nodes[0].address;
+        adr1 = address.slice(0, 31);
+        adr2 = address.slice(31); 
+
     }
     else {
         policy = 'Privacy policy';
-        address = general.enAdress;
+        address = general.enAdress.nodes[0].address;
+        adr1 = address.slice(0, 31);
+        adr2 = address.slice(31); 
     }
       
     const phones = general.allContentfulEmployee.nodes.reduce((acc, node) => {
@@ -67,23 +73,23 @@ function Footer({ lang }) {
                         {
                             phones.map((item) => {
                                 return (
-                                    <a key={item} href={`tel:${item}`} className='team-member-contacts--text'>{item}</a>
+                                    <a key={item} href={`tel:${item}`} className='team-member-contacts--text footer--tel-link'>{PhoneNormalize(item)}</a>
                                 )
                             })
                         }
                     </div>
             
                     <div class="footer--column">
-                        <a href="https://yandex.ru/maps/?pt=37.647298,55.761558&z=18&l=map" class="footer--adress">{address.nodes[0].address}</a>
+                        <a href="https://yandex.ru/maps/?pt=37.647298,55.761558&z=18&l=map" class="footer--adress">{adr1}<br/>{adr2}</a>
                         <a href="mailto:archgako@gmail.com" class="footer--mail">{general.contentfulCompanyContacts.email}</a>
                     </div>
             
                     <div class="footer--column">
                         <div class="footer--social-media">
-                            <a href="https://www.instagram.com/archgako/"><img class="footer__social-media-item" src={instLogo} alt="ARCHGAKO в instagram" width="50px"/></a>
-                            <a href="https://www.facebook.com/ARCHGAKO/"><img class="footer__social-media-item" src={fbLogo} alt="ARCHGAKO на facebook" width="50px"/></a>
+                            <a href="https://www.instagram.com/archgako/"><img class="footer--social-media-item" src={instLogo} alt="ARCHGAKO в instagram" width="50px"/></a>
+                            <a href="https://www.facebook.com/ARCHGAKO/"><img class="footer--social-media-item" src={fbLogo} alt="ARCHGAKO на facebook" width="50px"/></a>
                         </div>
-                        <Link to='policy' class="footer--policy">{policy}</Link>
+                        <Link to='/policy' class="footer--policy" activeStyle={{textDecoration: 'underline', fontSize: '14px'}}>{policy}</Link>
                         <span class="footer--copyright">2020 © Archgako</span>
                     </div>
                 </div>

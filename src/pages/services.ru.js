@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
@@ -10,28 +10,33 @@ import ServiceInfo from '../components/ServiceInfo/ServiceInfo'
 // import '../styles/pages/services.scss'
 
 const ServicesPage = ({ data, location }) => {
+    const language = 'ru';
+    const [isInfoOpened, toggleInfo] = useState(false);
+
     return (
-        <Layout location={location} lang="ru">
+        <Layout location={location} lang={language}>
             <div className="container">
                 <h1 className="page--heading animate__animated animate__fadeIn">Услуги</h1>
                 <ServicesBlock
                     group = 'main'
                     data = {data.allContentfulService.nodes}
+                    toggleInfo = {toggleInfo}
                 />
                 <ServiceInfo 
                     group = 'main'
                     data = {data.allContentfulService.nodes}
-                    lang = 'ru'
+                    lang = {language}
                 />
 
                 <ServicesBlock
                     group = 'extra'
                     data = {data.allContentfulService.nodes}
+                    toggleInfo = {toggleInfo}
                 />
                 <ServiceInfo 
                     group = 'extra'
                     data = {data.allContentfulService.nodes}
-                    lang = 'ru'
+                    lang = {language}
                 />
             </div>
         </Layout>

@@ -5,6 +5,8 @@ import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 
 import SendMessageForm from '../SendMessageForm/SendMessageForm'
+import PhoneNormalize from '../PhoneNormalize/PhoneNormalize'
+
 
 function ContactsBlock ({ mainInfo, phones, form }) {
     return (
@@ -30,7 +32,7 @@ function ContactsBlock ({ mainInfo, phones, form }) {
                             {
                                 phones.map((item) => {
                                     return (
-                                        <a key={item} href={`tel:${item}`} className='team-member-contacts--text'>{item}</a>
+                                        <a key={item} href={`tel:${item}`} className='team-member-contacts--text'>{PhoneNormalize(item)[0]} <span className="brown-text">{PhoneNormalize(item)[1]}</span></a>
                                     )
                                 })
                             }

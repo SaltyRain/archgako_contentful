@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import SiteLogo from '../SiteLogo/SiteLogo'
 import SideMenu from '../SideMenu/SideMenu'
 
@@ -8,6 +8,7 @@ import PhoneIcon from '../../../static/icon-phone.png'
 import { Animated } from "react-animated-css";
 import Navigation from '../Navigation/Navigation'
 import LanguageSelector from '../LanguageSelector/LanguageSelector'
+import PhoneNormalize from '../PhoneNormalize/PhoneNormalize'
 
 import './Header.scss'
 
@@ -17,7 +18,29 @@ const text = {
   en: 'Send message'
 }
 function Header({ lang, location }) {
-  function closeMenu(e) {
+  const data = useStaticQuery(graphql`
+  query headerQuery {
+    ruPhone: allContentfulEmployee(filter: {name: {eq: "Ксения Кондратович"}}) {
+      nodes {
+        phone
+      }
+    }
+    euPhone: allContentfulEmployee(filter: {name: {eq: "Angelina Garipova"}}) {
+      nodes {
+        phone
+      }
+    }
+  }
+`)
+let sitePhone; 
+// data.ruPhone.nodes[0].phone[0];
+
+if (lang === 'ru') 
+  sitePhone = data.ruPhone.nodes[0].phone[0];
+else
+  sitePhone = data.euPhone.nodes[0].phone[1];
+
+function closeMenu(e) {
     e.preventDefault();
     console.log('По ссылке кликнули.');
 }
@@ -32,7 +55,7 @@ else
   return (
     
     <header className="header container" id="header">
-      <Link to="/"  className="header--site-logo site-logo">
+      <Link to={lang === 'ru' ? '/' : '/en/'}  className="header--site-logo site-logo">
         <SiteLogo
           wrapper="header--site-logo"
           archgako="header--archgako"
@@ -48,8 +71,8 @@ else
 
 
       <div className="header--info-wrapper">
-        <a href="tel:+79111620482" className="header--call-button">
-            <span className="header--call-button-phone">+7 (911) 162-04-82</span>
+        <a href={"tel:" + sitePhone} className="header--call-button">
+            <span className="header--call-button-phone">{PhoneNormalize(sitePhone)[0]}</span>
             <img className="header--call-button-icon" src={PhoneIcon} alt="call the studio" width="30px" height="30px"/>
         </a>
 

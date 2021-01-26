@@ -8,12 +8,14 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import Layout from '../components/Layout/Layout'
 import AboutCountry from '../components/AboutCountry/AboutCountry'
 import TeamMember from '../components/TeamMember/TeamMember'
+import RequestForm from '../components/RequestForm/RequestForm'
 
 import '../styles/pages/about.scss'
 
 const AboutPage = ({ data, location }) => {
+    const language = 'ru';
     return (
-        <Layout location={location} lang='ru'>
+        <Layout location={location} lang={language}>
             <div className="container">
                <Animated>
                     <section className="about">
@@ -49,14 +51,20 @@ const AboutPage = ({ data, location }) => {
                                 key = {index}
                                 member = {item}
                                 extraClasses = {
-                                    index % 2 !== 0 ? ['team-member--row_image-right', 'team-member--photo_right'] : ''
+                                    index % 2 !== 0 ? ['team-member--row_image-right', 
+                                    'team-member--photo_right', 
+                                    'team-member--photo-bg_right',
+                                    'team-member--photo-photo_right',
+                                    ] : ['','','', '']
                                 }
                                 />
                             )
                         })
                     }
+                     <span class="team--sign sign">Angelina & Ksenia</span>
                 </section>
-                
+
+                <RequestForm data = {data.contentfulForm} lang = {language} wrapper='section--index'/>
 
                 
 
@@ -125,7 +133,14 @@ export default AboutPage
                 }
               }
             }
+        }
+        contentfulForm(title: {eq: "Обратиться в студию"}) {
+            title
+            description
+            formFields
+            privacy
           }
+
     }
   
  `

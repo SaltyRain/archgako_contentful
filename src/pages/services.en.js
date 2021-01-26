@@ -10,10 +10,11 @@ import ServiceInfo from '../components/ServiceInfo/ServiceInfo'
 // import '../styles/pages/services.scss'
 
 const ServicesPage = ({ data, location }) => {
+  const language = 'en';
     return (
-        <Layout location={location} lang="en">
+        <Layout location={location} lang={language}>
             <div className="container">
-                <h1 className="page--heading animate__animated animate__fadeIn">Услуги</h1>
+                <h1 className="page--heading animate__animated animate__fadeIn">Services</h1>
                 <ServicesBlock
                     group = 'main'
                     data = {data.allContentfulService.nodes}
@@ -21,7 +22,7 @@ const ServicesPage = ({ data, location }) => {
                 <ServiceInfo 
                     group = 'main'
                     data = {data.allContentfulService.nodes}
-                    lang = 'en'
+                    lang = {language}
                 />
 
                 <ServicesBlock
@@ -31,7 +32,7 @@ const ServicesPage = ({ data, location }) => {
                 <ServiceInfo 
                     group = 'extra'
                     data = {data.allContentfulService.nodes}
-                    lang = 'en'
+                    lang = {language}
                 />
             </div>
         </Layout>

@@ -17,6 +17,7 @@
     color: $white;
     text-align: center;
 }
+
 .footer--logo_archgako {
     font-size: 42px;
     margin-bottom: 0;
@@ -87,12 +88,16 @@
         }
     }
 }
-.footer__social-media-item {
+.footer--social-media-item {
     transition: 0.2s;
-
+    width: 40px;
+    height: 40px;
     &:hover {
         padding: 3px;
         transition: 0.2s;
+    }
+    img {
+        width: 50px !important;
     }
 }
 .footer--policy {
@@ -133,10 +138,15 @@
     .footer-tel--item {
         font-size: 14px;   
     }
+    .footer--tel-link {
+        &:hover {
+            border-bottom: 1px solid #fefefe !important;
+        }
+    }
 
     .footer--adress {
         font-size: 14px;
-        margin-top: -8px;
+        margin-top: 0;
         text-align: left;
     }
 
@@ -149,7 +159,7 @@
         margin-top: 0;
         text-align: right;
     }
-    .footer__social-media-item {
+    .footer--social-media-item {
         width: 30px;
         height: 30px;
         &:hover {

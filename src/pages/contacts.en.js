@@ -23,7 +23,7 @@ const ContactsPage = ({ data, location }) => {
     return (
         <Layout location={location} lang="en">
             <div className="container">
-                <h1 class="page--heading">Контакты</h1>
+                <h1 class="page--heading">Contacts</h1>
                 <ContactsBlock
                     mainInfo = {data.allContentfulCompanyContacts.nodes[0]}
                     phones = {phones}

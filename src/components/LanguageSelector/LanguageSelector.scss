@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .language-selector--dash {
     margin-left: 8px;
     margin-right: 8px;
@@ -5,4 +7,11 @@
 
 .language-selector {
     font-size: 18px;
+}
+
+.language-selector--link {
+    border-bottom: 2px solid transparent;
+    &_active {
+        border-bottom: 2px solid $black;
+    }
 }

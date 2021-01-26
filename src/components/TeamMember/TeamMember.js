@@ -5,10 +5,6 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import PhoneNormalize from '../PhoneNormalize/PhoneNormalize'
 
 function TeamMember({ member, extraClasses }) {       
-    let phones = member.phone;
-    console.log(phones, 'НОМЕРА МЕМБЕРА')
-    phones.forEach(phone => PhoneNormalize(phone));
-    console.log(phones, 'НОМЕРА МЕМБЕРА после функции')
     return (
         <section className="team-member">
             <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
@@ -40,15 +36,15 @@ function TeamMember({ member, extraClasses }) {
                     <ul className="team-member--contacts">
                         <li>
                             <div className="contacts--icon contacts--icon_instagram"></div>
-                            <a href={`https://www.instagram.com/${member.instagram}/`} className="member-contacts--text">@{member.instagram}</a>
+                            <a href={`https://www.instagram.com/${member.instagram}/`} className="team-member-contacts--text">@{member.instagram}</a>
                         </li>
                         <li>
                             <div className="contacts--icon contacts--icon_phone"></div>
-                            <div className="member-contacts--items-wrapper">
+                            <div className="team-member-contacts--items-wrapper">
                                     {
                                         member.phone.map((item) => {
                                             return (
-                                                <a href={`tel:${item}`} key={item} className="member-contacts--text">{item}</a>
+                                                <a href={`tel:${item}`} key={item} className="team-member-contacts--text">{PhoneNormalize(item)[0]} <span className="brown-text">{PhoneNormalize(item)[1]}</span></a>
                                             )
                                         })
                                     }
@@ -58,7 +54,9 @@ function TeamMember({ member, extraClasses }) {
                     </ul>
                 </div>
                 <div className={"team-member--photo " + extraClasses[1]}>
+                    <div className={'team-member--photo-bg ' + extraClasses[2]}/>
                     <Img 
+                        className={'team-member--photo-photo ' + extraClasses[3]} 
                         fixed = {member.photo.fixed}
                         alt = {member.photo.description}
                     />

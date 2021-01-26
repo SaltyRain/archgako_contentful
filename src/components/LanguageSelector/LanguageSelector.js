@@ -8,23 +8,24 @@ function LanguageSelector({ lang, location, className }) {
     <div className={"language-selector" + " " + className }>
       <span>
       <Link
+        className='language-selector--link'
         to={location.pathname.replace('/' + lang + '/', '/')}
-        activeStyle={{ textDecoration: 'underline' }}
-        // partiallyActive={true}
+        activeClassName='language-selector--link_active'
+        // partiallyActive={false}
       >
         ru
       </Link>
       <span className="language-selector--dash">|</span> 
       <Link 
-      className={className} 
+      className='language-selector--link'
       to={
         location.pathname.includes('/en')
         ? `${location.pathname}`
         : `/en${location.pathname}`
       }
-      activeStyle={{ textDecoration: 'underline' }}
+      activeClassName='language-selector--link_active'
 
-      partiallyActive={true}
+      // partiallyActive={true}
       
       >
         en

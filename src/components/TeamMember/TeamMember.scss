@@ -1,9 +1,18 @@
+@import '../../styles/variables';
+
+.team-member  {
+    margin-bottom: 120px;
+    &:nth-child(3) {
+        margin-bottom: 20px;
+    }
+}
 .team-member--row {
     display: flex;
     flex-direction: column;
 }
 
 .team-member--photo {
+    position: relative;
     align-self: center;
     max-width: 300px;
     img {
@@ -11,11 +20,28 @@
     }
 }
 
+.team-member--photo-bg {
+    background: $light-brown;
+    position: absolute;
+    width: 100%;
+    height: 93%;
+    &_right {
+        background: $black;
+        margin-left: 20px;
+    }
+}
+
+
+.team-member--photo-photo {
+    margin-left: 20px;
+    margin-top: 20px;
+    &_right {
+        margin-left: 0;
+    }
+}
+
 .team-member--info {
     order: 1;
-    &:first-child {
-        margin-left: 16px;
-    }
 }
 .team-member--name {
     font-family: "Arsenal-Bold";
@@ -109,6 +135,12 @@
         text-align: left;
         padding-left: 28px;
     }
+    .team-member--info {
+        order: 1;
+        &:first-child {
+            margin-left: 66px;
+        }
+    }
 
     // Картинка справа
     .team-member--row_image-right {
@@ -123,6 +155,7 @@
     }
     .team-member--photo_right {
         order: 2;
+        margin-right: 20px;
     }
     .team-member--name {
         margin-left: 0;
@@ -166,5 +199,16 @@
         li {
             margin-right: 0;
         }
+    }
+}
+
+
+@media (max-width: 370px) {
+    .team-member--photo-bg {
+        display: none;
+    }
+    .team-member--photo-photo {
+        margin: 0;
+        padding: 0;
     }
 }

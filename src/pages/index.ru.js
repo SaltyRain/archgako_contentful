@@ -20,7 +20,9 @@ const IndexPage = ({ data, location }) => {
   return (
     <Layout location={location} lang={language}>
         <Banner/>
-        <ProjectsCarousel/>
+        <ProjectsCarousel
+          projects = {data.allContentfulProject.nodes}
+        />
         <AboutIndex 
           lang={language}
           title = {data.ru.edges[0].node.title}
@@ -108,6 +110,29 @@ export const indexPageQuery = graphql`
         }
         year
         link
+      }
+    }
+    allContentfulProject(filter: {node_locale: {eq: "ru"}, onMainPage: {eq: true}}) {
+      nodes {
+        onMainPage
+        mainPageImage {
+          fluid(maxWidth: 1000) {
+            base64
+            tracedSVG
+            srcWebp
+            srcSetWebp
+          }
+          title
+        }
+        shortDescription {
+          childMarkdownRemark {
+            html
+          }
+        }
+        title
+        area
+        city
+        slug
       }
     }
   }

@@ -1,51 +1,71 @@
 import React from 'react'
 import './ProjectsCarousel.scss'
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import Carousel from 'react-bootstrap/Carousel'
+import Slider from "react-slick";
+import Img from 'gatsby-image'
+import { Link } from 'gatsby'
 
-function ProjectsCarousel() {
-    return (
-      <>
-      </>
-//         <Carousel>
-//   <Carousel.Item>
-//     <img
-//       className="d-block w-100"
-//       src="holder.js/800x400?text=First slide&bg=373940"
-//       alt="First slide"
-//     />
-//     <Carousel.Caption>
-//       <h3>First slide label</h3>
-//       <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-//     </Carousel.Caption>
-//   </Carousel.Item>
-//   <Carousel.Item>
-//     <img
-//       className="d-block w-100"
-//       src="holder.js/800x400?text=Second slide&bg=282c34"
-//       alt="Third slide"
-//     />
+export default ({projects}) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    swipeToSlide: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          swipeToSlide: true,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          arrows: false,
+          dots: true
+          
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          arrows: false,
+          dots: true
 
-//     <Carousel.Caption>
-//       <h3>Second slide label</h3>
-//       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-//     </Carousel.Caption>
-//   </Carousel.Item>
-//   <Carousel.Item>
-//     <img
-//       className="d-block w-100"
-//       src="holder.js/800x400?text=Third slide&bg=20232a"
-//       alt="Third slide"
-//     />
-
-//     <Carousel.Caption>
-//       <h3>Third slide label</h3>
-//       <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-//     </Carousel.Caption>
-//   </Carousel.Item>
-// </Carousel>
+        }
+      },
+    ]
+  };
+return (
+  <div className="projects-index">
+    <div className='projects-index--bg'>
+      <div className="container">
+        <Slider {...settings} className="projects-index--slider">
+          {
+            projects.map((project) => {
+              return (
+                <div className="projects-index--project project-index">
+                    <Img className='project-index--img' fluid={project.mainPageImage.fluid} alt={project.mainPageImage.alt}/>
+                    <div className="project-index--text-wrapper">
+                      <Link className='project-index--title' to={'/projects/' + project.slug}>{project.title}, {project.area}м²</Link>
+                      <p className="project-index--city">{project.city}</p>
+                    </div>
+                    <div className="project-index--desc-wrapper">
+                      <p className="project-index--desc" dangerouslySetInnerHTML={{__html: project.shortDescription.childMarkdownRemark.html}}/>
+                    </div>
+                    
+                </div>
+              )
+            })
+          }
+        </Slider>
+      </div>
+    </div>
+  </div>
 
 )
 }
-
-export default ProjectsCarousel

@@ -45,7 +45,12 @@ function Project({data, location}) {
         }
         return (
             <Layout location = {location} lang={language}>
-                {addSeo()}
+                            <SEO
+              title = {data.contentfulProject.title + '| ARCHGAKÒ'}
+              description = {data.contentfulProject.title}
+              image = {data.contentfulProject.previewImage.file.url}
+              keywords = {'Ключевые слова'}
+            />
                 <article className="container project-template">
                   <Animated>
                     <h1 className="page--heading project-template--heading">{data.contentfulProject.title}</h1>
@@ -118,7 +123,12 @@ function Project({data, location}) {
       const textArray = sliceText(textContent);
         return (
             <Layout location = {location} lang={language}>
-              {addSeo()}
+                          <SEO
+              title = {data.contentfulProject.title + '| ARCHGAKÒ'}
+              description = {data.contentfulProject.title}
+              image = {data.contentfulProject.previewImage.file.url}
+              keywords = {'Ключевые слова'}
+            />
               <article className="container project-template">
                 <Animated>
                   <h1 className="page--heading project-template--heading">{data.contentfulProject.title}</h1>

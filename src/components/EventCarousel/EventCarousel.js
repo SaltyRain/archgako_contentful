@@ -6,7 +6,6 @@ import Img from 'gatsby-image'
 
 
 export default ({events}) =>  {
-  console.log(events, 'EVENTS')
     const settings = {
         dots: false,
         infinite: false,

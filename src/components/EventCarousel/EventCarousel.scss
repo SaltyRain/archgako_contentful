@@ -61,22 +61,22 @@
     }
 }
 
-.slick-track {
-    margin-left: -10px;
-}
-.slick-arrow {
-    top: 40%;
-}
-.slick-next {
-    &::before {
-        color: $light-brown;
-    }
-}
-.slick-prev {
-    &::before {
-        color: $light-brown;
-    }
-}
+// .slick-track {
+//     margin-left: -10px;
+// }
+// .slick-arrow {
+//     top: 40%;
+// }
+// .slick-next {
+//     &::before {
+//         color: $light-brown;
+//     }
+// }
+// .slick-prev {
+//     &::before {
+//         color: $light-brown;
+//     }
+// }
 @media (max-width: 1000px) {
     .slick-next {
         right: -15px;

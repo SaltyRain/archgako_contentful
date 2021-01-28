@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout/layout'
 import '../styles/pages/policy.scss'
 

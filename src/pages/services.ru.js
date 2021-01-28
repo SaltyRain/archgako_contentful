@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-
+import { Animated } from "react-animated-css";
 import Layout from '../components/Layout/Layout'
 
 import ServicesBlock from '../components/ServicesBlock/ServicesBlock'
@@ -16,6 +16,7 @@ const ServicesPage = ({ data, location }) => {
     return (
         <Layout location={location} lang={language}>
             <div className="container">
+              <Animated>
                 <h1 className="page--heading animate__animated animate__fadeIn">Услуги</h1>
                 <ServicesBlock
                     group = 'main'
@@ -38,6 +39,7 @@ const ServicesPage = ({ data, location }) => {
                     data = {data.allContentfulService.nodes}
                     lang = {language}
                 />
+              </Animated>
             </div>
         </Layout>
     )

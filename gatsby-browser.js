@@ -1,4 +1,4 @@
-import "./src/styles/global.scss"
-import "./src/styles/_variables.scss"
-import "./src/styles/_fonts.scss"
 import "./src/styles/normalize.scss"
+import "./src/styles/global.scss"
+// import "~slick-carousel/slick/slick.css"
+// import "~slick-carousel/slick/slick-theme.css"

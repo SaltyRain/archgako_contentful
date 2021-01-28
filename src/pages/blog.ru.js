@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { graphql } from 'gatsby'
-
+import { Animated } from "react-animated-css";
 import Layout from '../components/Layout/Layout'
 import BlogPostPreview from '../components/BlogPostPreview/BlogPostPreview'
 
@@ -41,6 +41,7 @@ const BlogPage = ({ data, location }) => {
     return (
         <Layout location={location} lang="ru">
             <div className="container blog">
+              <Animated>
                 <h1 className="page--heading animate__animated animate__fadeIn">Блог</h1>
                 <p className="intro-text animate__animated animate__fadeIn arsenal">
                     Рассказываем о дизайне интерьеров, колористике и архитектуре. Делимся своим опытом... Рассказываем о дизайне интерьеров, колористике и архитектуре. Делимся личным опытом.
@@ -64,7 +65,7 @@ const BlogPage = ({ data, location }) => {
                 ) : (
                   <p className="visually-hidden">No more results</p>
                 )}
-
+            </Animated>
             </div>
         </Layout>
     )

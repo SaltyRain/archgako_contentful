@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const config = require('./config/website')
+
 const contentfulConfig = {
   // spaceId: process.env.CONTENTFUL_SPACE_ID,
   // accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
@@ -24,13 +26,33 @@ if (!spaceId || !accessToken) {
     'Contentful spaceId and the access token need to be provided.'
   )
 }
+const siteUrl = 'https://www.archgako.com/';
 
 module.exports = {
   siteMetadata: {
-    title: 'Archgako',
     languages: {
       langs: ['en', 'ru'],
       defaultLangKey: 'ru',
+    },
+    title: config.siteTitle,
+    twitterHandle: config.twitterHandle,
+    description: config.siteDescription,
+    keywords: [
+      'Architectural design',
+      'Архитектурное бюро',
+      'Interior design',
+      'Дизайн интерьеров',
+    ],
+    canonicalUrl: siteUrl,
+    image: config.siteLogo,
+    author: {
+      name: config.author,
+      minibio: config.minibio,
+    },
+    organization: {
+      name: config.organization,
+      url: siteUrl,
+      logo: config.siteLogo,
     },
   },
   // pathPrefix: '/gatsby-contentful-starter',
@@ -42,6 +64,13 @@ module.exports = {
 
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-sass`,
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -100,
+        duration: 1000
+      }
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,

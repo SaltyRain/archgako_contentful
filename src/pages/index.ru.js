@@ -9,6 +9,7 @@ import ProjectsCarousel from '../components/ProjectsCarousel/ProjectsCarousel'
 import AboutIndex from '../components/AboutIndex/AboutIndex' 
 import Advantages from '../components/Advantages/Advantages'
 import RequestForm from '../components/RequestForm/RequestForm'
+import EventCarousel from '../components/EventCarousel/EventCarousel'
 
 
 
@@ -27,6 +28,9 @@ const IndexPage = ({ data, location }) => {
           image = {data.aboutImageIndex.edges[0].node.aboutImageIndex.fluid}
           alt = {data.aboutImageIndex.edges[0].node.aboutImageIndex.title}
           buttontext = "Подробнее"
+        />
+        <EventCarousel
+          events = {data.allContentfulEvent.nodes}
         />
         <Advantages
           sectionHeading = {data.allContentfulHeading.nodes}
@@ -89,6 +93,22 @@ export const indexPageQuery = graphql`
       description
       formFields
       privacy
+    }
+    allContentfulEvent(filter: {node_locale: {eq: "ru"}}) {
+      nodes {
+        title
+        image {
+          fluid(maxWidth: 1000) {
+            base64
+            tracedSVG
+            srcWebp
+            srcSetWebp
+          }
+          title
+        }
+        year
+        link
+      }
     }
   }
 `

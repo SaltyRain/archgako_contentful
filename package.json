@@ -1,15 +1,16 @@
 {
-  "name": "gatsby-contentful-starter",
-  "description": "Starter Contentful Gatsby Blog",
+  "name": "archgako-website",
+  "description": "WebSite for architectural burau ARCHGAKO",
   "version": "1.0.0",
-  "author": "Stefan Judis <stefanjudis@gmail.com>",
+  "author": "Timur SaltyRain Garipov",
   "bugs": {
-    "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
+    "url": "https://github.com/SaltyRain/archgako_contentful/issues"
   },
   "dependencies": {
     "aos": "^2.3.4",
     "bootstrap": "^4.6.0",
     "gatsby-image": "^2.8.0",
+    "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-intl": "^0.3.3",
     "gatsby-plugin-react-helmet": "^3.2.4",
@@ -21,12 +22,15 @@
     "lodash": "^4.17.15",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-animate-on-scroll": "^2.1.5",
     "react-animated-css": "^1.2.1",
     "react-bootstrap": "^1.4.3",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
-    "sharp": "^0.25.2"
+    "react-slick": "^0.28.0",
+    "sharp": "^0.25.2",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -45,7 +49,7 @@
   "engines": {
     "node": ">=10.13.0"
   },
-  "homepage": "https://github.com/contentful-userland/gatsby-contentful-starter#readme",
+  "homepage": "https://github.com/SaltyRain/archgako_contentful",
   "keywords": [
     "gatsby",
     "contentful"
@@ -54,7 +58,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contentful-userland/gatsby-contentful-starter.git"
+    "url": "git+https://github.com/SaltyRain/archgako_contentful.git"
   },
   "scripts": {
     "dev": "npm run develop",

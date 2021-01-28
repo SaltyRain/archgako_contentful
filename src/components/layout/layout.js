@@ -5,8 +5,10 @@ import Container from '../Container/Container'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import ButtonUp from '../ButtonUp/ButtonUp'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
-
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import './layout.scss'
 
 class Template extends React.Component {
@@ -25,6 +27,9 @@ class Template extends React.Component {
           {children}
           <ButtonUp/>
         </main>
+        <div class="container button-up--wrapper">
+            <AnchorLink href="#header" id="buttonUp" class="button-up"></AnchorLink>
+        </div>
         <Footer lang={lang} />
       </>
     )

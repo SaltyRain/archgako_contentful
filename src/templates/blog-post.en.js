@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/templates/blog-post.scss'
-
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout/Layout'
 
 function BlogPost({data, location}) {

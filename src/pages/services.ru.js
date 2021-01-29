@@ -6,6 +6,7 @@ import Layout from '../components/Layout/Layout'
 
 import ServicesBlock from '../components/ServicesBlock/ServicesBlock'
 import ServiceInfo from '../components/ServiceInfo/ServiceInfo'
+import PopupForm from '../components/PopupForm/PopupForm'
 
 // import '../styles/pages/services.scss'
 
@@ -40,6 +41,10 @@ const ServicesPage = ({ data, location }) => {
                     lang = {language}
                 />
               </Animated>
+            </div>
+            <PopupForm lang={language}/>
+            <div className="container b-popup--cart-wrapper">
+              <button class="popup--cart"/>
             </div>
         </Layout>
     )

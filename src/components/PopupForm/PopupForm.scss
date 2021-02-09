@@ -8,7 +8,12 @@
     position: fixed;
     top: 0px;
     z-index: 2;
-    display: none;
+    &_opened {
+        display: block;
+    }
+    &_closed {
+        display: none;
+    }
 }
 .b-popup .b-popup-content {
     position: relative;
@@ -137,7 +142,7 @@ body:not(:-moz-handler-blocked) fieldset {
     background-color: transparent;
     outline: none;
     cursor: pointer;
-    background-image: url("../../../static/images/order-button.png");
+    background-image: url("../../../static/images/order-button.svg");
     background-size: contain;
     bottom: 50%;
     right: 2%;

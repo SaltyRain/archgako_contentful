@@ -20,6 +20,7 @@ class Template extends React.Component {
       rootPath = __PATH_PREFIX__ + `/`
     }
 
+
     return (
       <>
         <Header lang={lang} location={location} />

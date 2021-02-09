@@ -2,10 +2,11 @@ import React from 'react'
 import './EventCarousel.scss'
 import Slider from "react-slick";
 import Img from 'gatsby-image'
+import ScrollAnimation from 'react-animate-on-scroll';
 
 
-
-export default ({events}) =>  {
+export default ({events, className}) =>  {
+    if (!className) className = '';
     const settings = {
         dots: false,
         infinite: false,
@@ -43,7 +44,8 @@ export default ({events}) =>  {
         ]
       };
     return (
-        <div className='container events'>
+      <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
+        <section className={'container events ' + className}>
         <h3 className='events--title'>Последние события</h3>
         <Slider {...settings}>
           {
@@ -63,6 +65,7 @@ export default ({events}) =>  {
             })
           }
         </Slider>
-      </div>
+      </section>
+      </ScrollAnimation>
     )
 }

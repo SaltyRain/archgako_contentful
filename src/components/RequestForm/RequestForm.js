@@ -1,9 +1,9 @@
 import React from 'react'
 import './RequestForm.scss'
 import { Link } from 'gatsby'
-
-function RequestForm({data, lang, wrapper}) {
-    if (!wrapper) wrapper = '';
+import ScrollAnimation from 'react-animate-on-scroll';
+function RequestForm({data, lang, className}) {
+    if (!className) className = '';
     let p1, p2, path;
     if (lang === 'ru') {
         p1 = 'Даю согласие на обработку персональных данных в соответствии с';
@@ -17,7 +17,8 @@ function RequestForm({data, lang, wrapper}) {
     }
 
     return (
-        <section className={"request-form " + wrapper}>
+        <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
+        <section className={"request-form " + className}>
             <div className="request-form--row">
                 <div className="request-form--col">
                     <h3 className="section--heading section--heading_left request-form--title">{data.title}</h3>
@@ -44,6 +45,7 @@ function RequestForm({data, lang, wrapper}) {
                 </div>
             </div>
         </section>
+        </ScrollAnimation>
     )
 }
 

@@ -27,7 +27,6 @@ function HeaderMobileContacts({lang, location}) {
           }
     }
   `)
-  console.log(data.ru.address, 'HARUKI')
 
 
   const phones = data.allContentfulEmployee.nodes.reduce((acc, node) => {

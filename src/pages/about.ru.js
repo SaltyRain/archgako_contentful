@@ -64,7 +64,7 @@ const AboutPage = ({ data, location }) => {
                      <span class="team--sign sign">Angelina & Ksenia</span>
                 </section>
 
-                <RequestForm data = {data.contentfulForm} lang = {language} wrapper='section--index'/>
+                <RequestForm data = {data.contentfulForm} lang = {language} className='index-section'/>
 
                 
 
@@ -118,8 +118,8 @@ export default AboutPage
             nodes {
               photo {
                 description
-                fixed(height: 300, width: 300) {
-                    ...GatsbyContentfulFixed
+                fluid(maxWidth: 3259) {
+                    ...GatsbyContentfulFluid
                 }
               }
               specialization

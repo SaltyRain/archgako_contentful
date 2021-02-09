@@ -57,7 +57,7 @@ function TeamMember({ member, extraClasses }) {
                     <div className={'team-member--photo-bg ' + extraClasses[2]}/>
                     <Img 
                         className={'team-member--photo-photo ' + extraClasses[3]} 
-                        fixed = {member.photo.fixed}
+                        fluid = {member.photo.fluid}
                         alt = {member.photo.description}
                     />
                 </div>

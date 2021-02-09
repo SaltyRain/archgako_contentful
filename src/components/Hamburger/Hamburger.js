@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Hamburger.scss'
 
-function Hamburger() {
+function Hamburger({clickHandler}) {
     return (
-        <button className="header--hamburger hamburger" type="button">
+        <button onClick={clickHandler} className="header--hamburger hamburger" type="button">
             <span className="hamburger-box">
                 <span className="hamburger-inner"></span>
             </span>

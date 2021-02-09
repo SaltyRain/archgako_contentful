@@ -16,14 +16,9 @@ html {
 }
 
 body {
-  // font-family: 'Raleway', sans-serif;
-  // font-family: "Arsenal Regular", "Roboto", sans-serif;
-  // font-family: 'Roboto Condensed', sans-serif;
   color: $black;
   font-size: 16px;
-
   background-color: $white;
-
   margin: auto;
 }
 
@@ -40,27 +35,14 @@ img {
 }
 
 p {
-  // font-family: 'Raleway', sans-serif;
-  // font-family: 'Plain Medium', serif;
-  // font-family: 'Roboto Condensed', sans-serif;
-  // font-family: 'Roboto', sans-serif;
-  // font-weight: 300;
   font-size: 17px;
 }
-@media (min-width: 1400px) {
-  p {
-    // font-size: 18px;
-  }
-}
+
 
 .arsenal {
   font-family: 'Arsenal-Regular', 'Roboto', sans-serif;
 }
-// button {
-//     &:focus {
-//         outline-color: $light-gray;
-//     }
-// }
+
 
 .brown-text {
   color: $light-brown;
@@ -141,24 +123,21 @@ p {
   &_left {
     text-align: left;
   }
-
-  // transition: all .4s ease-in-out;
-  // transform: translate3d(0, 30px, 0);
-  // opacity: 0;
 }
 
-// .section--heading.active {
-//     transform: translate3d(0px, 0, 0);
-//     opacity: 1;
-// }
 @media (min-width: 1000px) {
   .section--heading {
     font-size: 24px;
   }
 }
 
-.section--index {
-  margin-top: 82px;
+.index-section {
+  margin-top: 120px !important;
+}
+@media (max-width: 600px) {
+  .index-section {
+    margin-top: 90px !important;
+  }
 }
 
 @media (min-width: 400px) {
@@ -214,7 +193,7 @@ p {
   background-color: $light-brown;
   border-radius: 50%;
   text-align: center;
-  margin: 60px auto 0 auto;
+  margin: 0 auto 0 auto;
 }
 
 .bg {
@@ -239,11 +218,9 @@ p {
   cursor: pointer;
 
   transition: 0.2s;
-  background-image: url('../../static/images/up-arrow.png');
+  background-image: url('../../static/images/up-arrow.svg');
   background-size: contain;
-  &:hover,
-  &:active {
-    background-image: url('../../static/images/up-arrow_active.png');
+  &:hover {
     opacity: 1;
   }
 

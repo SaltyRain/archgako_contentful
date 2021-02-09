@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 
-import './footer.scss'
+import './Footer.scss'
 
 import instLogo from '../../../static/images/smedia/instagram.svg'
 import fbLogo from '../../../static/images/smedia/facebook.svg'

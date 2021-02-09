@@ -7,19 +7,22 @@ import Layout from '../components/Layout/Layout'
 import ServicesBlock from '../components/ServicesBlock/ServicesBlock'
 import ServiceInfo from '../components/ServiceInfo/ServiceInfo'
 import PopupForm from '../components/PopupForm/PopupForm'
+import Advantages from '../components/Advantages/Advantages'
 
-// import '../styles/pages/services.scss'
 
 const ServicesPage = ({ data, location }) => {
   const language = 'ru'
   const [activeMainInfo, setActiveMainInfo] = useState('')
   const [activeExtraInfo, setActiveExtraInfo] = useState('')
 
+  const [isPopupOpened, togglePopup] = useState(false);
+  const togglePopupOpened = () => togglePopup(!isPopupOpened)
+
   return (
     <Layout location={location} lang={language}>
       <div className="container">
         <Animated>
-          <h1 className="page--heading animate__animated animate__fadeIn">
+          <h1 className="page--heading">
             Услуги
           </h1>
           <ServicesBlock
@@ -47,10 +50,25 @@ const ServicesPage = ({ data, location }) => {
           />
         </Animated>
       </div>
-      <PopupForm lang={language} />
+      
+      <PopupForm 
+        isOpened = {isPopupOpened}
+        clickHandler = {togglePopupOpened}
+        lang={language} 
+      />
+      
+
+  <Animated>
       <div className="container b-popup--cart-wrapper">
-        <button class="popup--cart" />
+        <button class="popup--cart" onClick = {togglePopupOpened}/>
       </div>
+      </Animated>
+
+      <Advantages
+          className = 'index-section'
+          sectionHeading = {data.allContentfulHeading.nodes}
+          advantages = {data.allContentfulAdvantage.nodes}
+      />
     </Layout>
   )
 }
@@ -59,6 +77,24 @@ export default ServicesPage
 
 export const servicesPageQuery = graphql`
   query servicesRuPageQuery {
+    allContentfulHeading(filter: {slug: {eq: "advantages"}, node_locale: {eq: "ru"}}) {
+      nodes {
+        title
+      }
+    }
+    allContentfulAdvantage(filter: {node_locale: {eq: "ru"}}, sort: {order: ASC, fields: createdAt}) {
+      nodes {
+        title
+        description
+        id
+        image {
+          fixed(height: 85, width: 85) {
+            ...GatsbyContentfulFixed
+          }
+          description
+        }
+      }
+    }
     allContentfulService(filter: { node_locale: { eq: "ru" } }) {
       nodes {
         title

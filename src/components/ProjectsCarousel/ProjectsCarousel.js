@@ -3,12 +3,16 @@ import './ProjectsCarousel.scss'
 import Slider from "react-slick";
 import Img from 'gatsby-image'
 import { Link } from 'gatsby'
+import ScrollAnimation from 'react-animate-on-scroll';
+import {Container} from 'react-bootstrap';
 
-export default ({projects}) => {
+export default ({lang, projects, className}) => {
+  let allProj = (lang === 'ru' ? 'Все проекты' : 'All projects'); 
+  if (!className) className = '';
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 900,
     slidesToShow: 1,
     slidesToScroll: 1,
     swipeToSlide: false,
@@ -16,34 +20,23 @@ export default ({projects}) => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          swipeToSlide: true,
+          swipeToSlide: true
         }
       },
       {
-        breakpoint: 768,
+        breakpoint: 550,
         settings: {
-          slidesToShow: 2,
-          arrows: false,
-          dots: true
-          
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          arrows: false,
-          dots: true
+          arrows: false
 
         }
       },
     ]
   };
 return (
-  <div className="projects-index">
+  <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
+  <section className={"projects-index " + className} id='about-projects'>
     <div className='projects-index--bg'>
-      <div className="container">
+      <Container>
         <Slider {...settings} className="projects-index--slider">
           {
             projects.map((project) => {
@@ -63,9 +56,16 @@ return (
             })
           }
         </Slider>
-      </div>
+        
+        <div className="projects-index--all-projects_wrapper">
+        <Link className='projects-index--all-projects' to='/projects'><span className='projects-index--all-projects_text'>{allProj}</span> <span className="projects-index--all-projects_arrow">&#129042;</span></Link>
+        </div>
+        
+        
+      </Container>
     </div>
-  </div>
+  </section>
+  </ScrollAnimation>
 
 )
 }

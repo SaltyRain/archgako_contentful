@@ -20,10 +20,13 @@ const IndexPage = ({ data, location }) => {
   return (
     <Layout location={location} lang={language}>
         <Banner/>
-        <ProjectsCarousel
+        <ProjectsCarousel 
+          lang={language}
+          className = 'index-section'
           projects = {data.allContentfulProject.nodes}
         />
         <AboutIndex 
+          className = 'index-section'
           lang={language}
           title = {data.ru.edges[0].node.title}
           text = {data.ru.edges[0].node.shortAbout.childMarkdownRemark.html}
@@ -32,13 +35,16 @@ const IndexPage = ({ data, location }) => {
           buttontext = "Подробнее"
         />
         <EventCarousel
+          
+          className = 'index-section'
           events = {data.allContentfulEvent.nodes}
         />
         <Advantages
+          className = 'index-section'
           sectionHeading = {data.allContentfulHeading.nodes}
           advantages = {data.allContentfulAdvantage.nodes}
         />
-        <RequestForm data = {data.contentfulForm} lang = {language} wrapper='container section--index'/>
+        <RequestForm data = {data.contentfulForm} lang = {language} className='container index-section'/>
         
 
     </Layout>
@@ -101,10 +107,7 @@ export const indexPageQuery = graphql`
         title
         image {
           fluid(maxWidth: 1000) {
-            base64
-            tracedSVG
-            srcWebp
-            srcSetWebp
+            ...GatsbyContentfulFluid
           }
           title
         }

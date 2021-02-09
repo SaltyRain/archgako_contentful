@@ -7,7 +7,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 function ScrollDown() {
     return (
         <section className="scroll-down">
-            <AnchorLink  offset='100' href="#about-index"><span></span></AnchorLink>
+            <AnchorLink  offset='100' href="#about-projects"><span></span></AnchorLink>
         </section>
     )
 }

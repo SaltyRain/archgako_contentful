@@ -2,11 +2,13 @@ import React from 'react';
 import './AboutIndex.scss';
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
+import ScrollAnimation from 'react-animate-on-scroll';
 
-
-function AboutIndex({ lang, title, text, image, alt, buttontext }) {
+function AboutIndex({ lang, title, text, image, alt, buttontext, className }) {
+    if (!className) className = '';
     return (
-        <section className="about-index container" id='about-index'>
+        <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
+        <section className={"about-index container " + className}>
             <div className="about-index--photo-wrapper">
                 <h2 className="about-index--title">{title}</h2>
                 <Img
@@ -28,6 +30,7 @@ function AboutIndex({ lang, title, text, image, alt, buttontext }) {
 
            
         </section>
+        </ScrollAnimation>
 
     )
 }

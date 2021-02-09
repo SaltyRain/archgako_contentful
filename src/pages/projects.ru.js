@@ -91,12 +91,12 @@ export const projectsPageQuery = graphql`
           }
         }
         scheme {
-          fluid(maxWidth: 1200) {
+          fluid(maxWidth: 1000) {
             ...GatsbyContentfulFluid
           }
         }
         previewImage {
-          fluid(maxWidth: 1200) {
+          fluid(maxWidth: 1000) {
             ...GatsbyContentfulFluid
           }
         }

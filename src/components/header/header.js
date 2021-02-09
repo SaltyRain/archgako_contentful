@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import SiteLogo from '../SiteLogo/SiteLogo'
 import SideMenu from '../SideMenu/SideMenu'
@@ -52,6 +52,8 @@ else
     request = text.en;
 
 
+  const [isMobileMenuOpened, toggleMobileMenu] = useState(false);
+  const toggleMenuOpened = () => toggleMobileMenu(!isMobileMenuOpened)
   return (
     
     <header className="header container" id="header">
@@ -84,8 +86,10 @@ else
           location={location}
         />
 
-        <Hamburger/>
+        <Hamburger clickHandler = {toggleMenuOpened}/>
         <SideMenu
+          isOpened = {isMobileMenuOpened}
+          clickHandler = {toggleMenuOpened}
           lang = {lang}
           location = {location}
         />

@@ -2,53 +2,53 @@ import React from 'react'
 import './ServiceInfo.scss'
 
 function parseHtml(html) {
-  // const head = document.querySelector('thead')
-  // if (head) {
-  //   const row = head.children[0]
-  //   const rowChilds = Array.from(row.children)
-  //   console.log(rowChilds, 'rowChilds')
-  //   rowChilds.map((item, index) => {
-  //     if (index >= 1) {
-  //       // creating rect
-  //       const priceRect = document.createElement('div')
-  //       priceRect.classList.add('service-info-rect')
+  const head = document.querySelector('thead')
+  if (head) {
+    const row = head.children[0]
+    const rowChilds = Array.from(row.children)
+    console.log(rowChilds, 'rowChilds')
+    rowChilds.map((item, index) => {
+      if (index >= 1) {
+        // creating rect
+        const priceRect = document.createElement('button')
+        priceRect.classList.add('service-info-rect')
 
-  //       // container for elements
-  //       const priceContainer = document.createElement('div')
-  //       priceContainer.classList.add('service-info--price-container')
-  //       priceContainer.append(priceRect)
+        // container for elements
+        const priceContainer = document.createElement('div')
+        priceContainer.classList.add('service-info--price-container')
+        priceContainer.append(priceRect)
 
-  //       // creating price span
-  // const innerItem = item.textContent
-  // console.log(innerItem, 'newInnerItem')
-  // item.innerHTML = ''
-  // const innerSpan = document.createElement('span')
-  // console.log(item, 'item')
-  // console.log(innerItem.split(' ')[0], 'split')
-  // console.log(innerItem.split(' ').slice(1).join(' '), 'left')
-  // // const newInnerItem =
-  // //   `${innerItem.split(' ')[0]}` +
-  // //   '<br>' +
-  // //   `${innerItem.split(' ').slice(1).join(' ')}`
+        // creating price span
+        const innerItem = item.textContent
+        console.log(innerItem, 'newInnerItem')
+        item.innerHTML = ''
+        const innerSpan = document.createElement('span')
+        console.log(item, 'item')
+        console.log(innerItem.split(' ')[0], 'split')
+        console.log(innerItem.split(' ').slice(1).join(' '), 'left')
+      // const newInnerItem =
+      //   `${innerItem.split(' ')[0]}` +
+      //   '<br>' +
+      //   `${innerItem.split(' ').slice(1).join(' ')}`
 
-  // innerSpan.innerHTML = innerItem
-  // priceContainer.append(innerSpan)
+      innerSpan.innerHTML = innerItem
+      priceContainer.append(innerSpan)
 
-  // // append priceContainer to item
-  // item.append(priceContainer)
-  // // innerSpan.classList.add('service-info--price')
-  // priceContainer.append(innerSpan)
+      // append priceContainer to item
+      item.append(priceContainer)
+      // innerSpan.classList.add('service-info--price')
+      priceContainer.append(innerSpan)
 
-  // item.append(priceContainer)
-  // console.log(innerItem, 'innterItem')
-  // item.append(priceContainer)
-  //     }
-  //   })
-  // }
-  // const thArray = [...html.match(/<\s*th[^>]*>([^<]*)<\s*\/\s*th\s*>/g)]
-  // // thArray.map((th) => console.log(th))
-  // console.log(thArray, 'thArray')
-  return html
+      item.append(priceContainer)
+      console.log(innerItem, 'innterItem')
+      item.append(priceContainer)
+          }
+        })
+  }
+  const thArray = [...html.match(/<\s*th[^>]*>([^<]*)<\s*\/\s*th\s*>/g)]
+  // thArray.map((th) => console.log(th))
+  console.log(thArray, 'thArray')
+  return html;
 }
 
 function ServiceInfo({ group, data, lang, activeInfo }) {
@@ -68,7 +68,6 @@ function ServiceInfo({ group, data, lang, activeInfo }) {
   }
 
   let buffer = data[0].body.childMarkdownRemark.html
-  // console.log(typeof buffer, 'BUFFER')
 
   let servicePrice = (price) => {
     return (

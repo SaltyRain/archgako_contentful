@@ -112,6 +112,10 @@
   background-color: #f1e4df;
   width: 30px;
   height: 30px;
+  margin-bottom: 12px;
+  transition: .3s;
+  outline: 0;
+  border: 0;
   &:hover {
     cursor: pointer;
     background-color: #af9888;
@@ -129,6 +133,12 @@
   font-family: 'Arsenal-Bold';
 }
 
+
+.services-block_extra h3 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
 @media (max-width: 910px) {
   .service-info {
     tbody {

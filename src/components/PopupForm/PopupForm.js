@@ -1,7 +1,7 @@
 import React from 'react'
 import './PopupForm.scss'
 
-export default ({lang}) => {
+export default ({isOpened, clickHandler, lang}) => {
     let data = {};
     const ru = {
         title: 'Заказать услуги',
@@ -24,7 +24,7 @@ export default ({lang}) => {
     data = (lang === 'ru' ? ru : en); 
 
     return (
-        <div className="b-popup" id="popup-form">
+        <div className={isOpened ? 'b-popup b-popup_opened' : 'b-popup b-popup_closed'} id="popup-form">
             <div className="b-popup-content">
                 <form action="" className="b-popup--form form" id="services-form">
                     <h4 className="b-popup--title">{data.title}</h4>
@@ -102,7 +102,7 @@ export default ({lang}) => {
                     </div>
                 </form>
                 
-                <button class="b-popup--close" dangerouslySetInnerHTML={{__html: '&#10006'}}/>
+                <button onClick={clickHandler} class="b-popup--close" dangerouslySetInnerHTML={{__html: '&#10006'}}/>
                 
             </div>
         </div>

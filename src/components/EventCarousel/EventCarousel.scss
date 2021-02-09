@@ -7,14 +7,6 @@
         text-align: center;
         margin-bottom: 32px;
     }
-    &--arrow {
-        &_prew {
-            background: green;
-        }
-        &_next {
-            background: red;
-        }
-    }
 }
 
 .event {
@@ -32,15 +24,11 @@
     }
 
     &--img {
-        // height: 200px;
-        // height: calc(20vw + 100px);
         height: calc(15vw + 50px);
         max-height: 200px;
     }
     &--img-bg {
         position: absolute;
-        // height: 200px;
-        // height: calc(20vw + 100px);
         height: calc(15vw + 50px);
         max-height: 200px;
         width: calc(100% - 40px);
@@ -61,49 +49,34 @@
     }
 }
 
-// .slick-track {
-//     margin-left: -10px;
-// }
-// .slick-arrow {
-//     top: 40%;
-// }
-// .slick-next {
-//     &::before {
-//         color: $light-brown;
-//     }
-// }
-// .slick-prev {
-//     &::before {
-//         color: $light-brown;
-//     }
-// }
+.events .slick-track {
+    margin-left: -10px;
+}
+.events .slick-arrow {
+    top: 40%;
+}
+.events .slick-next {
+    &::before {
+        color: $light-brown;
+    }
+}
+.events .slick-prev {
+    &::before {
+        color: $light-brown;
+    }
+}
 @media (max-width: 1000px) {
-    .slick-next {
+    .events .slick-next {
         right: -15px;
         
     }
-    .slick-prev {
+    .events .slick-prev {
          left: -15px;
         
     }
 }
 
-// @media (max-width: 1024px) {
-//     .event--img {
-//         height: 250px;
-//     }
-//     .event--img-bg {
-//         height: 250px;
-//     }
-// }
-// @media (max-width: 768px) {
-//     .event--img {
-//         height: 250px;
-//     }
-//     .event--img-bg {
-//         height: 250px;
-//     }
-// }
+
 @media (max-width: 480px) {
     .event--img {
         height: calc(40vw + 120px);
@@ -113,29 +86,3 @@
     }
 }
 
-// @media (max-width: 850px) {
-//     .event--img {
-//         height: 200px;
-//     }
-//     .event--img-bg {
-//         height: 200px;
-//     }
-// }
-// @media (max-width: 670px) {
-//     .event--img {
-//         height: 150px;
-//     }
-//     .event--img-bg {
-//         height: 150px;
-//     }
-// }
-// @media (max-width: 480px) {
-//     .event--img {
-//         height: 60vw;
-//         max-height: 300px;
-//     }
-//     .event--img-bg {
-//         height: 60vw;
-//         max-height: 300px;
-//     }
-// }

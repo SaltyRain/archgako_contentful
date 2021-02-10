@@ -28,8 +28,8 @@ class Template extends React.Component {
           {children}
           <ButtonUp/>
         </main>
-        <div class="container button-up--wrapper">
-            <AnchorLink href="#header" id="buttonUp" class="button-up"></AnchorLink>
+        <div className="container button-up--wrapper">
+            <AnchorLink href="#header" id="buttonUp" className="button-up"></AnchorLink>
         </div>
         <Footer lang={lang} />
       </>

@@ -1,54 +1,56 @@
 import React from 'react'
 import './ServiceInfo.scss'
 
-function parseHtml(html) {
-  const head = document.querySelector('thead')
-  if (head) {
-    const row = head.children[0]
-    const rowChilds = Array.from(row.children)
-    console.log(rowChilds, 'rowChilds')
-    rowChilds.map((item, index) => {
-      if (index >= 1) {
-        // creating rect
-        const priceRect = document.createElement('button')
-        priceRect.classList.add('service-info-rect')
+function wrapElem(elem) {
+  const w1 = `<div class='service-info--price-container'>
+                    <button class="service-info-rect"></button>
+                    <span>`;
+  const w2 = `</span></div>`;
 
-        // container for elements
-        const priceContainer = document.createElement('div')
-        priceContainer.classList.add('service-info--price-container')
-        priceContainer.append(priceRect)
+  return w1 + elem + w2;
+}
+function parseThead(thead) {
 
-        // creating price span
-        const innerItem = item.textContent
-        console.log(innerItem, 'newInnerItem')
-        item.innerHTML = ''
-        const innerSpan = document.createElement('span')
-        console.log(item, 'item')
-        console.log(innerItem.split(' ')[0], 'split')
-        console.log(innerItem.split(' ').slice(1).join(' '), 'left')
-      // const newInnerItem =
-      //   `${innerItem.split(' ')[0]}` +
-      //   '<br>' +
-      //   `${innerItem.split(' ').slice(1).join(' ')}`
 
-      innerSpan.innerHTML = innerItem
-      priceContainer.append(innerSpan)
+  const basic = 'Basic', standart = 'Standart', premium = 'Premium';
 
-      // append priceContainer to item
-      item.append(priceContainer)
-      // innerSpan.classList.add('service-info--price')
-      priceContainer.append(innerSpan)
+  let startBasic, endBasic;
+  let startStandart, endStandart;
+  let startPremium, endPremium;
 
-      item.append(priceContainer)
-      console.log(innerItem, 'innterItem')
-      item.append(priceContainer)
-          }
-        })
+  startBasic = thead.indexOf(basic);
+  endBasic = startBasic + basic.length;
+
+  startStandart = thead.indexOf(standart, startBasic);
+  endStandart = startStandart + standart.length;
+
+  startPremium = thead.indexOf(premium, startStandart);
+  endPremium = startPremium + premium.length;
+
+  let result = '';
+  if (startBasic !== -1) {
+    result = thead.substring(0, startBasic) + wrapElem(basic) + thead.substring(endBasic, startStandart) + wrapElem(standart) + thead.substring(endStandart, startPremium) + wrapElem(premium) + thead.substring(endPremium, thead.length)
   }
-  const thArray = [...html.match(/<\s*th[^>]*>([^<]*)<\s*\/\s*th\s*>/g)]
-  // thArray.map((th) => console.log(th))
-  console.log(thArray, 'thArray')
-  return html;
+  else {
+    result = thead.substring(0, startStandart) +  wrapElem(standart) + thead.substring(endStandart, startPremium) + wrapElem(premium) + thead.substring(endPremium, thead.length)
+  }
+  return result;
+}
+
+function parseHtml(html) {
+  // Если в блоке есть таблица
+  let result;
+  if (html.indexOf('<thead>') !== -1) {
+      const start = html.indexOf('<thead>');
+      const end = html.indexOf('</thead>') + 8;
+      let thead = html.substring(start, end);
+      let newHead = parseThead(thead);
+      result = html.substring(0, start) + newHead + html.substring(end, html.length)
+  }
+  else {
+    result = html;
+  }
+  return result;
 }
 
 function ServiceInfo({ group, data, lang, activeInfo }) {
@@ -67,22 +69,22 @@ function ServiceInfo({ group, data, lang, activeInfo }) {
     constText[1] = 'Add service'
   }
 
-  let buffer = data[0].body.childMarkdownRemark.html
-
+  
+  
   let servicePrice = (price) => {
     return (
-      <div class="service-info--price-block">
-        <div class="service-info-rect"></div>
-        <p class="service-info--text">{constText[0]}</p>
-        <p class="service-info--price">{price}</p>
+      <div className="service-info--price-block">
+        <div className="service-info-rect"></div>
+        <p className="service-info--text">{constText[0]}</p>
+        <p className="service-info--price">{price}</p>
 
-        <button class="button service-info--button">{constText[1]}</button>
+        <button className="button service-info--button">{constText[1]}</button>
       </div>
     )
   }
   let serviceButton = (
-    <div class="service-info--button_float-right">
-      <button class="button service-info--button">{constText[1]}</button>
+    <div className="service-info--button_float-right">
+      <button className="button service-info--button">{constText[1]}</button>
     </div>
   )
 
@@ -93,7 +95,7 @@ function ServiceInfo({ group, data, lang, activeInfo }) {
   return (
     <>
       {newArray.map((item) => {
-        const parsedHTML = parseHtml(item.body.childMarkdownRemark.html)
+        const parsedHTML = parseHtml(item.body.childMarkdownRemark.html);
         return (
           <div
             key={item.id}

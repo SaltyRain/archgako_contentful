@@ -136,6 +136,7 @@ body:not(:-moz-handler-blocked) fieldset {
 
 .b-popup--card-wrapper {
     position: relative;
+    z-index: 999;
 }
 .popup--cart {
     border: 0;

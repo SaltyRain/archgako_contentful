@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { Animated } from 'react-animated-css'
+import ScrollAnimation from 'react-animate-on-scroll';
 import Layout from '../components/Layout/Layout'
 
 import ServicesBlock from '../components/ServicesBlock/ServicesBlock'
 import ServiceInfo from '../components/ServiceInfo/ServiceInfo'
 import PopupForm from '../components/PopupForm/PopupForm'
 import Advantages from '../components/Advantages/Advantages'
+import Stages from '../components/Stages/Stages'
 
 
 const ServicesPage = ({ data, location }) => {
@@ -51,23 +53,33 @@ const ServicesPage = ({ data, location }) => {
         </Animated>
       </div>
       
+
+      
+      <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
+        <Stages
+          data = {data.contentfulStages}
+        />
+      </ScrollAnimation>
+        
+      <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
+        <Advantages
+            className = 'index-section'
+            sectionHeading = {data.allContentfulHeading.nodes}
+            advantages = {data.allContentfulAdvantage.nodes}
+        />
+      </ScrollAnimation>
+      
+
+
+      <Animated>
+      <div className="container b-popup--cart-wrapper">
+        <button className="popup--cart" onClick = {togglePopupOpened}/>
+      </div>
+      </Animated>
       <PopupForm 
         isOpened = {isPopupOpened}
         clickHandler = {togglePopupOpened}
         lang={language} 
-      />
-      
-
-  <Animated>
-      <div className="container b-popup--cart-wrapper">
-        <button class="popup--cart" onClick = {togglePopupOpened}/>
-      </div>
-      </Animated>
-
-      <Advantages
-          className = 'index-section'
-          sectionHeading = {data.allContentfulHeading.nodes}
-          advantages = {data.allContentfulAdvantage.nodes}
       />
     </Layout>
   )
@@ -77,6 +89,24 @@ export default ServicesPage
 
 export const servicesPageQuery = graphql`
   query servicesRuPageQuery {
+    contentfulStages(node_locale: {eq: "ru"}) {
+      title
+      description {
+        childMarkdownRemark {
+          html
+        }
+      }
+      eachStage {
+        title
+        description
+      }
+      images {
+        fluid(maxWidth: 800) {
+          ...GatsbyContentfulFluid
+        }
+        title
+      }
+    }
     allContentfulHeading(filter: {slug: {eq: "advantages"}, node_locale: {eq: "ru"}}) {
       nodes {
         title

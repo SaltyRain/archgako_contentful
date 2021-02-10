@@ -16,8 +16,8 @@ function Advantages({ sectionHeading, advantages, className}) {
                 {
                     advantages.map((advantage) => {
                         return (
-                            <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
-                                <div className="advantages--item advantage" key={advantage.id}>
+                            <ScrollAnimation animateIn='fadeIn' animateOnce={true} key={advantage.id}>
+                                <div className="advantages--item advantage">
                                     <div className="advantage--image">
                                         <Img
                                             fixed={advantage.image.fixed}

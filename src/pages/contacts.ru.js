@@ -6,9 +6,7 @@ import { Animated } from "react-animated-css";
 import Layout from '../components/Layout/Layout'
 import ContactsBlock from '../components/ContactsBlock/ContactsBlock'
 import Maps from '../components/Maps/Maps'
-
-
-// import '../styles/pages/services.scss'
+import SEO from '../components/SEO'
 
 const ContactsPage = ({ data, location }) => {
     const phones = data.allContentfulEmployee.nodes.reduce((acc, node) => {
@@ -19,9 +17,14 @@ const ContactsPage = ({ data, location }) => {
         acc.push(node.phone[0]);
         return acc;
         }, []) 
+        const language = 'ru';
     return (
-        <Layout location={location} lang="ru">
+        <Layout location={location} lang={language}>
             <div className="container">
+            <SEO 
+                lang = {language}
+                title = 'Контакты'
+            />
               <Animated>
                 <h1 className="page--heading">Контакты</h1>
                   <ContactsBlock

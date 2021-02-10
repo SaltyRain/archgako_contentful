@@ -1,17 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import {flatten} from 'lodash';
+import { Animated } from "react-animated-css";
 
 import Layout from '../components/Layout/Layout'
 import ContactsBlock from '../components/ContactsBlock/ContactsBlock'
 import Maps from '../components/Maps/Maps'
-
-
-// import '../styles/pages/services.scss'
+import SEO from '../components/SEO'
 
 const ContactsPage = ({ data, location }) => {
-    console.log (data.allContentfulEmployee.nodes, "NOED")
     const phones = data.allContentfulEmployee.nodes.reduce((acc, node) => {
         if (node.phone.length > 1) {
         node.phone.forEach((node) => acc.push(node))
@@ -20,18 +17,25 @@ const ContactsPage = ({ data, location }) => {
         acc.push(node.phone[0]);
         return acc;
         }, []) 
+    const language = 'en';
     return (
-        <Layout location={location} lang="en">
+        <Layout location={location} lang={language}>
             <div className="container">
-                <h1 class="page--heading">Contacts</h1>
-                <ContactsBlock
-                    mainInfo = {data.allContentfulCompanyContacts.nodes[0]}
-                    phones = {phones}
-                    form = {data.allContentfulForm.nodes[0]}
-                />
-                <Maps
-                    data = {data.allContentfulCompanyContacts.nodes[0].mapImages}
-                />
+              <SEO 
+                  lang = {language}
+                  title = 'Contacts'
+              />
+              <Animated>
+                <h1 className="page--heading">Contacts</h1>
+                  <ContactsBlock
+                      mainInfo = {data.allContentfulCompanyContacts.nodes[0]}
+                      phones = {phones}
+                      form = {data.allContentfulForm.nodes[0]}
+                  />
+                  <Maps
+                      data = {data.allContentfulCompanyContacts.nodes[0].mapImages}
+                  />
+              </Animated>
             </div>
         </Layout>
     )
@@ -40,7 +44,7 @@ const ContactsPage = ({ data, location }) => {
 export default ContactsPage
 
 export const contactsPageQuery = graphql`
-query contactsEnPageQuery {
+query contactsenPageQuery {
     allContentfulCompanyContacts(filter: {node_locale: {eq: "en"}}) {
       nodes {
         address

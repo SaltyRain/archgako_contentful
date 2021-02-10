@@ -10,7 +10,7 @@ import AboutIndex from '../components/AboutIndex/AboutIndex'
 import Advantages from '../components/Advantages/Advantages'
 import RequestForm from '../components/RequestForm/RequestForm'
 import EventCarousel from '../components/EventCarousel/EventCarousel'
-
+import SEO from '../components/SEO'
 
 
 import '../styles/pages/index.scss'
@@ -19,6 +19,10 @@ const IndexPage = ({ data, location }) => {
   const language = 'ru';
   return (
     <Layout location={location} lang={language}>
+        <SEO 
+          lang = {language}
+          title = 'Главная'
+        />
         <Banner/>
         <ProjectsCarousel 
           lang={language}
@@ -35,7 +39,7 @@ const IndexPage = ({ data, location }) => {
           buttontext = "Подробнее"
         />
         <EventCarousel
-          
+          lang = {language}
           className = 'index-section'
           events = {data.allContentfulEvent.nodes}
         />

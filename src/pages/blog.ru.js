@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { Animated } from "react-animated-css";
 import Layout from '../components/Layout/Layout'
 import BlogPostPreview from '../components/BlogPostPreview/BlogPostPreview'
+import SEO from '../components/SEO'
 
 const BlogPage = ({ data, location }) => {
     // Массив всех проектов
@@ -38,9 +39,14 @@ const BlogPage = ({ data, location }) => {
       setHasMore(isMore)
     }, [list]) //eslint-disable-line
   
+    const language = 'ru'
     return (
-        <Layout location={location} lang="ru">
+        <Layout location={location} lang={language}>
             <div className="container blog">
+              <SEO 
+                  lang = {language}
+                  title = 'Блог'
+              />
               <Animated>
                 <h1 className="page--heading animate__animated animate__fadeIn">Блог</h1>
                 <p className="intro-text animate__animated animate__fadeIn arsenal">
@@ -63,7 +69,7 @@ const BlogPage = ({ data, location }) => {
                 {hasMore ? (
                   <button className="button button_center" onClick={handleLoadMore}>Загрузить еще</button>
                 ) : (
-                  <p className="visually-hidden">No more results</p>
+                  <p className="visually-hidden">Больше нет результатов</p>
                 )}
             </Animated>
             </div>

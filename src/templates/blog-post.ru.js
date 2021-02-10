@@ -3,6 +3,7 @@ import '../styles/templates/blog-post.scss'
 import { graphql } from 'gatsby'
 import { Animated } from "react-animated-css";
 import Layout from '../components/Layout/Layout'
+import SEO from '../components/SEO'
 
 function BlogPost({data}) {
     let minutes;
@@ -12,8 +13,15 @@ function BlogPost({data}) {
         minutes = 'минуты';
     else minutes = 'минут';
 
+    const language = 'ru'
     return (
-        <Layout location={location} lang="ru">
+        <Layout location={location} lang={language}>
+                          <SEO 
+                lang = {language}
+                title = {data.contentfulBlogPost.title}
+                description = {data.contentfulBlogPost.description.description}
+                image = {data.contentfulBlogPost.heroImage.file.url}
+            />
             <div className="container container_small">
               <Animated>
             <article className="full-article" >
@@ -34,14 +42,17 @@ export default BlogPost
 
 export const blogPostQuery = graphql`
   query BlogPostRuBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     contentfulBlogPost(slug: { eq: $slug }, node_locale: {eq: "ru"}) {
       title
       readingTime
+      description {
+        description
+      }
+      heroImage {
+        file {
+          url
+        }
+      }
       body {
         childMarkdownRemark {
           html

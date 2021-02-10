@@ -9,7 +9,7 @@ import Layout from '../components/Layout/Layout'
 import AboutCountry from '../components/AboutCountry/AboutCountry'
 import TeamMember from '../components/TeamMember/TeamMember'
 import RequestForm from '../components/RequestForm/RequestForm'
-
+import SEO from '../components/SEO'
 import '../styles/pages/about.scss'
 
 const AboutPage = ({ data, location }) => {
@@ -17,6 +17,10 @@ const AboutPage = ({ data, location }) => {
     return (
         <Layout location={location} lang={language}>
             <div className="container">
+            <SEO 
+                lang = {language}
+                title = 'About'
+            />
                <Animated>
                     <section className="about">
                         <h1 className="page--heading">About</h1>
@@ -42,7 +46,7 @@ const AboutPage = ({ data, location }) => {
                 
                 <section className="team">
                     <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
-                        <h2 className="section--heading" data-aos="fade-up">Наша команда</h2>
+                        <h2 className="section--heading" data-aos="fade-up">Our team</h2>
                     </ScrollAnimation>
                     {
                         data.allContentfulEmployee.nodes.map((item, index) => {
@@ -64,7 +68,7 @@ const AboutPage = ({ data, location }) => {
                      <span class="team--sign sign">Angelina & Ksenia</span>
                 </section>
 
-                <RequestForm data = {data.contentfulForm} lang = {language} wrapper='section--index'/>
+                <RequestForm data = {data.contentfulForm} lang = {language} className='index-section'/>
 
                 
 
@@ -118,8 +122,8 @@ export default AboutPage
             nodes {
               photo {
                 description
-                fixed(height: 300, width: 300) {
-                    ...GatsbyContentfulFixed
+                fluid(maxWidth: 3259) {
+                    ...GatsbyContentfulFluid
                 }
               }
               specialization

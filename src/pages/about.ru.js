@@ -9,7 +9,7 @@ import Layout from '../components/Layout/Layout'
 import AboutCountry from '../components/AboutCountry/AboutCountry'
 import TeamMember from '../components/TeamMember/TeamMember'
 import RequestForm from '../components/RequestForm/RequestForm'
-
+import SEO from '../components/SEO'
 import '../styles/pages/about.scss'
 
 const AboutPage = ({ data, location }) => {
@@ -17,6 +17,10 @@ const AboutPage = ({ data, location }) => {
     return (
         <Layout location={location} lang={language}>
             <div className="container">
+            <SEO 
+                lang = {language}
+                title = 'О студии'
+            />
                <Animated>
                     <section className="about">
                         <h1 className="page--heading">О студии</h1>

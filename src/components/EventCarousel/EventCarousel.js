@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 import ScrollAnimation from 'react-animate-on-scroll';
 
 
-export default ({events, className}) =>  {
+export default ({lang, events, className}) =>  {
     if (!className) className = '';
     const settings = {
         dots: false,
@@ -43,10 +43,12 @@ export default ({events, className}) =>  {
           },
         ]
       };
+
+    let sectionTitle = (lang === 'ru' ? 'Последние события': 'Latest News')
     return (
       <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
         <section className={'container events ' + className}>
-        <h3 className='events--title'>Последние события</h3>
+        <h3 className='events--title'>{sectionTitle}</h3>
         <Slider {...settings}>
           {
             events.map((event) => {

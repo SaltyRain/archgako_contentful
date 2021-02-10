@@ -44,7 +44,7 @@ return (
                 <div className="projects-index--project project-index">
                     <Img className='project-index--img' fluid={project.mainPageImage.fluid} alt={project.mainPageImage.alt}/>
                     <div className="project-index--text-wrapper">
-                      <Link className='project-index--title' to={'/projects/' + project.slug}>{project.title}, {project.area}м²</Link>
+                      <Link className='project-index--title' to={lang === 'ru' ? '/projects/' + project.slug : '/en/projects/' + project.slug}>{project.title}, {project.area}м²</Link>
                       <p className="project-index--city">{project.city}</p>
                     </div>
                     <div className="project-index--desc-wrapper">
@@ -58,7 +58,7 @@ return (
         </Slider>
         
         <div className="projects-index--all-projects_wrapper">
-        <Link className='projects-index--all-projects' to='/projects'><span className='projects-index--all-projects_text'>{allProj}</span> <span className="projects-index--all-projects_arrow">&#129042;</span></Link>
+        <Link className='projects-index--all-projects' to={lang === 'ru' ? '/projects' : '/en/projects'}><span className='projects-index--all-projects_text'>{allProj}</span> <span className="projects-index--all-projects_arrow">&#129042;</span></Link>
         </div>
         
         

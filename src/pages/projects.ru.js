@@ -3,11 +3,12 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { Animated } from "react-animated-css";
 
-
+import SEO from '../components/SEO'
 import Layout from '../components/Layout/Layout'
 import ProjectPreview from '../components/ProjectPreview/ProjectPreview'
 
 import '../styles/pages/projects.scss'
+import { lang } from "../../config/website";
 
 const ProjectsPage = ({ data, location }) => {
 
@@ -44,8 +45,13 @@ const ProjectsPage = ({ data, location }) => {
     setHasMore(isMore)
   }, [list]) //eslint-disable-line
 
+  const language ='ru'
   return (
-    <Layout location={location} lang="ru">
+    <Layout location={location} lang={language}>
+                  <SEO 
+                lang = {language}
+                title = 'Проекты'
+            />
       <section className="container">
         <Animated>
           <h1 className="page--heading" >Проекты</h1> 
@@ -56,7 +62,7 @@ const ProjectsPage = ({ data, location }) => {
               return (
                 <ProjectPreview
                 key = {project.slug}
-                lang = 'ru'
+                lang = {language}
                 project = {project}
               />
               )
@@ -66,7 +72,7 @@ const ProjectsPage = ({ data, location }) => {
         {hasMore ? (
         <button className="button button_center" onClick={handleLoadMore}>Загрузить еще</button>
       ) : (
-        <p className="visually-hidden">No more results</p>
+        <p className="visually-hidden">Больше нет результатов</p>
       )}
       </section>
     </Layout>

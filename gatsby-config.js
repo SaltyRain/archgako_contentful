@@ -37,12 +37,7 @@ module.exports = {
     title: config.siteTitle,
     twitterHandle: config.twitterHandle,
     description: config.siteDescription,
-    keywords: [
-      'Architectural design',
-      'Архитектурное бюро',
-      'Interior design',
-      'Дизайн интерьеров',
-    ],
+    keywords: config.keywords,
     canonicalUrl: siteUrl,
     image: config.siteLogo,
     author: {

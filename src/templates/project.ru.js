@@ -45,11 +45,11 @@ function Project({data, location}) {
         }
         return (
             <Layout location = {location} lang={language}>
-                            <SEO
-              title = {data.contentfulProject.title + '| ARCHGAKÒ'}
-              description = {data.contentfulProject.title}
+              <SEO
+              lang = {language}
+              title = {data.contentfulProject.title}
+              description = {data.contentfulProject.shortDescription.shortDescription}
               image = {data.contentfulProject.previewImage.file.url}
-              keywords = {'Ключевые слова'}
             />
                 <article className="container project-template">
                   <Animated>
@@ -123,11 +123,11 @@ function Project({data, location}) {
       const textArray = sliceText(textContent);
         return (
             <Layout location = {location} lang={language}>
-                          <SEO
-              title = {data.contentfulProject.title + '| ARCHGAKÒ'}
-              description = {data.contentfulProject.title}
+              <SEO
+              lang = {language}
+              title = {data.contentfulProject.title}
+              description = {data.contentfulProject.shortDescription.shortDescription}
               image = {data.contentfulProject.previewImage.file.url}
-              keywords = {'Ключевые слова'}
             />
               <article className="container project-template">
                 <Animated>
@@ -191,6 +191,9 @@ export const ProjectQuery = graphql`
     area
     city
     year
+    shortDescription {
+      shortDescription
+    }
     longDescription {
       childMarkdownRemark {
         html

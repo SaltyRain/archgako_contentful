@@ -3,6 +3,8 @@ import '../styles/templates/project.scss'
 import Layout from '../components/Layout/Layout'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
+import { Animated } from "react-animated-css";
+import SEO from '../components/SEO'
 
 function Project({data, location}) {
     let textContent = data.contentfulProject.longDescription.childMarkdownRemark.html;
@@ -29,11 +31,19 @@ function Project({data, location}) {
           return result;
         }
         const textArray = sliceText(textContent);
+
         return (
             <Layout location = {location} lang={language}>
+              <SEO
+              lang = {language}
+              title = {data.contentfulProject.title}
+              description = {data.contentfulProject.shortDescription.shortDescription}
+              image = {data.contentfulProject.previewImage.file.url}
+            />
                 <article className="container project-template">
+                  <Animated>
                     <h1 className="page--heading project-template--heading">{data.contentfulProject.title}</h1>
-                    <p className="project-template--area">Total area {data.contentfulProject.area}м²</p>
+                    <p className="project-template--area">total project area {data.contentfulProject.area}м²</p>
                     <p className="project-template--city">{data.contentfulProject.city}</p>
 
                     <div className="project-template--part">
@@ -80,6 +90,7 @@ function Project({data, location}) {
                     </div>
 
                     {addLastText(textArray[3])}
+                  </Animated>
                 </article>
             </Layout>
         )
@@ -101,9 +112,16 @@ function Project({data, location}) {
       const textArray = sliceText(textContent);
         return (
             <Layout location = {location} lang={language}>
+              <SEO
+              lang = {language}
+              title = {data.contentfulProject.title}
+              description = {data.contentfulProject.shortDescription.shortDescription}
+              image = {data.contentfulProject.previewImage.file.url}
+            />
               <article className="container project-template">
+                <Animated>
                   <h1 className="page--heading project-template--heading">{data.contentfulProject.title}</h1>
-                  <p className="project-template--area">общая площадь объекта {data.contentfulProject.area}м²</p>
+                  <p className="project-template--area">total project area {data.contentfulProject.area}м²</p>
                   <p className="project-template--city">{data.contentfulProject.city}</p>
 
                   <div className="project-template--part project-template-part_v2">
@@ -145,6 +163,7 @@ function Project({data, location}) {
 
 
                   {addLastText(textArray[3])}
+                </Animated>
               </article>  
             </Layout>
         )
@@ -154,21 +173,24 @@ function Project({data, location}) {
 export default Project
 
 export const ProjectQuery = graphql`
-  query ProjectEnBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+  query ProjectenBySlug($slug: String!) {
     contentfulProject(slug: { eq: $slug }, node_locale: {eq: "en"}) {
-        templateNumber
+    templateNumber
     title
     area
     city
     year
+    shortDescription {
+      shortDescription
+    }
     longDescription {
       childMarkdownRemark {
         html
+      }
+    }
+    previewImage {
+      file {
+        url
       }
     }
     projectImages {

@@ -5,28 +5,51 @@ import Img from 'gatsby-image'
 
 import Layout from '../components/Layout/Layout'
 import Banner from '../components/Banner/Banner'
+import ProjectsCarousel from '../components/ProjectsCarousel/ProjectsCarousel'
 import AboutIndex from '../components/AboutIndex/AboutIndex' 
 import Advantages from '../components/Advantages/Advantages'
+import RequestForm from '../components/RequestForm/RequestForm'
+import EventCarousel from '../components/EventCarousel/EventCarousel'
+import SEO from '../components/SEO'
 
 
 import '../styles/pages/index.scss'
 
 const IndexPage = ({ data, location }) => {
+  const language = 'en';
   return (
-    <Layout location={location} lang="en">
+    <Layout location={location} lang={language}>
+          <SEO 
+          lang = {language}
+          title = 'Main Page'
+        />
         <Banner/>
+        <ProjectsCarousel 
+          lang={language}
+          className = 'index-section'
+          projects = {data.allContentfulProject.nodes}
+        />
         <AboutIndex 
-          lang="en"
+          className = 'index-section'
+          lang={language}
           title = {data.en.edges[0].node.title}
           text = {data.en.edges[0].node.shortAbout.childMarkdownRemark.html}
           image = {data.aboutImageIndex.edges[0].node.aboutImageIndex.fluid}
           alt = {data.aboutImageIndex.edges[0].node.aboutImageIndex.title}
-          buttontext = "More"
+          buttontext = "Read more"
+        />
+        <EventCarousel
+          lang = {language}
+          className = 'index-section'
+          events = {data.allContentfulEvent.nodes}
         />
         <Advantages
+          className = 'index-section'
           sectionHeading = {data.allContentfulHeading.nodes}
           advantages = {data.allContentfulAdvantage.nodes}
         />
+        <RequestForm data = {data.contentfulForm} lang = {language} className='container index-section'/>
+        
 
     </Layout>
   )
@@ -75,7 +98,48 @@ export const indexPageQuery = graphql`
           }
           description
         }
-        
+      }
+    }
+    contentfulForm(title: {eq: "Обратиться в студию"}) {
+      title
+      description
+      formFields
+      privacy
+    }
+    allContentfulEvent(filter: {node_locale: {eq: "en"}}) {
+      nodes {
+        title
+        image {
+          fluid(maxWidth: 1000) {
+            ...GatsbyContentfulFluid
+          }
+          title
+        }
+        year
+        link
+      }
+    }
+    allContentfulProject(filter: {node_locale: {eq: "en"}, onMainPage: {eq: true}}) {
+      nodes {
+        onMainPage
+        mainPageImage {
+          fluid(maxWidth: 1000) {
+            base64
+            tracedSVG
+            srcWebp
+            srcSetWebp
+          }
+          title
+        }
+        shortDescription {
+          childMarkdownRemark {
+            html
+          }
+        }
+        title
+        area
+        city
+        slug
       }
     }
   }

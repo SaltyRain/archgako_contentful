@@ -21,13 +21,20 @@ function SEO({
     ? `${seo.canonicalUrl}${postMeta.slug}`
     : seo.canonicalUrl,
   datePublished = isBlogPost ? postMeta.datePublished : false,
-  keywords
+  keywords = postMeta.keywords || config.keywords,
+  lang
 }) {
+  
+  let language = (lang === 'ru'? 'ru' : 'en')
   return (
     <>
       <Helmet>
+        <html lang={language} amp />
         {/* General tags */}
-        <title>{title}</title>
+        <meta charSet="utf-8" />
+        <link rel="canonical" href="http://archgako.com" />
+        
+        <title>{title} | ARCHGAKÒ</title>
         <meta name="description" content={description} />
         <meta name="image" content={image} />
         <meta name="keywords" content={keywords} />
@@ -71,6 +78,7 @@ function SEOWithQuery(props) {
         siteMetadata {
           title
           description
+          keywords
           canonicalUrl
           image
           author {

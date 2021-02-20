@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { Animated } from 'react-animated-css'
 import ScrollAnimation from 'react-animate-on-scroll'
 import Layout from '../components/Layout/Layout'
-
+import SEO from '../components/SEO'
 import ServicesBlock from '../components/ServicesBlock/ServicesBlock'
 import ServiceInfo from '../components/ServiceInfo/ServiceInfo'
 import PopupForm from '../components/PopupForm/PopupForm'
@@ -22,6 +22,10 @@ const ServicesPage = ({ data, location }) => {
 
   return (
     <Layout location={location} lang={language}>
+                  <SEO 
+                lang = {language}
+                title = 'Услуги'
+            />
       <div className="container">
         <Animated>
           <h1 className="page--heading">Услуги</h1>
@@ -36,6 +40,21 @@ const ServicesPage = ({ data, location }) => {
             lang={language}
             activeInfo={activeMainInfo}
           />
+
+          <div class="services-block--page-text">
+                    <p
+                        class="page-text_center page-text_tight page-text_close-paragraph"
+                    >
+                        Помимо основных, мы предоставляем несколько
+                        дополнительных услуг.
+                    </p>
+                    <p
+                        class="page-text page-text_center page-text_tight page-text_close-paragraph"
+                    >
+                        Дополнительные услуги могут быть добавлены к основным
+                        услугам или же браться отдельно.
+                    </p>
+                </div>
 
           <ServicesBlock
             group="extra"

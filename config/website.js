@@ -24,4 +24,6 @@ module.exports = {
     themeColor: '#AF9888',
     backgroundColor: '#231C42',
 
+    keywords: 'дизайн интерьера, архитектура, заказать дизайн интерьера, interior design, architecture, order interior design'
+
   }

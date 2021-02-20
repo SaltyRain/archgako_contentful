@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { Animated } from 'react-animated-css'
-import ScrollAnimation from 'react-animate-on-scroll';
+import ScrollAnimation from 'react-animate-on-scroll'
 import Layout from '../components/Layout/Layout'
 
 import ServicesBlock from '../components/ServicesBlock/ServicesBlock'
@@ -11,22 +11,20 @@ import PopupForm from '../components/PopupForm/PopupForm'
 import Advantages from '../components/Advantages/Advantages'
 import Stages from '../components/Stages/Stages'
 
-
 const ServicesPage = ({ data, location }) => {
   const language = 'ru'
   const [activeMainInfo, setActiveMainInfo] = useState('')
   const [activeExtraInfo, setActiveExtraInfo] = useState('')
-
-  const [isPopupOpened, togglePopup] = useState(false);
+  console.log(activeMainInfo, 'activeMainInfo'),
+    console.log(activeExtraInfo, 'activeExtraInfo')
+  const [isPopupOpened, togglePopup] = useState(false)
   const togglePopupOpened = () => togglePopup(!isPopupOpened)
 
   return (
     <Layout location={location} lang={language}>
       <div className="container">
         <Animated>
-          <h1 className="page--heading">
-            Услуги
-          </h1>
+          <h1 className="page--heading">Услуги</h1>
           <ServicesBlock
             group="main"
             data={data.allContentfulService.nodes}
@@ -52,34 +50,28 @@ const ServicesPage = ({ data, location }) => {
           />
         </Animated>
       </div>
-      
 
-      
-      <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
-        <Stages
-          data = {data.contentfulStages}
-        />
+      <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+        <Stages data={data.contentfulStages} />
       </ScrollAnimation>
-        
-      <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
+
+      <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
         <Advantages
-            className = 'index-section'
-            sectionHeading = {data.allContentfulHeading.nodes}
-            advantages = {data.allContentfulAdvantage.nodes}
+          className="index-section"
+          sectionHeading={data.allContentfulHeading.nodes}
+          advantages={data.allContentfulAdvantage.nodes}
         />
       </ScrollAnimation>
-      
-
 
       <Animated>
-      <div className="container b-popup--cart-wrapper">
-        <button className="popup--cart" onClick = {togglePopupOpened}/>
-      </div>
+        <div className="container b-popup--cart-wrapper">
+          <button className="popup--cart" onClick={togglePopupOpened} />
+        </div>
       </Animated>
-      <PopupForm 
-        isOpened = {isPopupOpened}
-        clickHandler = {togglePopupOpened}
-        lang={language} 
+      <PopupForm
+        isOpened={isPopupOpened}
+        clickHandler={togglePopupOpened}
+        lang={language}
       />
     </Layout>
   )
@@ -89,7 +81,7 @@ export default ServicesPage
 
 export const servicesPageQuery = graphql`
   query servicesRuPageQuery {
-    contentfulStages(node_locale: {eq: "ru"}) {
+    contentfulStages(node_locale: { eq: "ru" }) {
       title
       description {
         childMarkdownRemark {
@@ -107,12 +99,17 @@ export const servicesPageQuery = graphql`
         title
       }
     }
-    allContentfulHeading(filter: {slug: {eq: "advantages"}, node_locale: {eq: "ru"}}) {
+    allContentfulHeading(
+      filter: { slug: { eq: "advantages" }, node_locale: { eq: "ru" } }
+    ) {
       nodes {
         title
       }
     }
-    allContentfulAdvantage(filter: {node_locale: {eq: "ru"}}, sort: {order: ASC, fields: createdAt}) {
+    allContentfulAdvantage(
+      filter: { node_locale: { eq: "ru" } }
+      sort: { order: ASC, fields: createdAt }
+    ) {
       nodes {
         title
         description

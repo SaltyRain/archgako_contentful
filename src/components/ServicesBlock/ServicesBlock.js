@@ -4,7 +4,7 @@ import './ServicesBlock.scss'
 
 function ServicesBlock({ group, data, setActiveInfo }) {
   const [activeBlock, setActiveBlock] = React.useState('')
-  console.log(activeBlock, 'activeBlock')
+  // console.log(activeBlock, 'activeBlock')
   const openInfo = ({ active }) => {
     setActiveBlock(active)
     setActiveInfo(active)

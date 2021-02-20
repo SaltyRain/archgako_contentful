@@ -17,5 +17,3 @@ export const costOrAddServiceText = {
     add: 'Add service',
   },
 }
-
-export const parseServiceTableHtml = (serviceHtml) => {}

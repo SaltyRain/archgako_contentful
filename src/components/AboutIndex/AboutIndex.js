@@ -6,6 +6,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 function AboutIndex({ lang, title, text, image, alt, buttontext, className }) {
     if (!className) className = '';
+
     return (
         <ScrollAnimation animateIn='fadeIn' animateOnce={true}>
         <section className={"about-index container " + className}>
@@ -25,7 +26,7 @@ function AboutIndex({ lang, title, text, image, alt, buttontext, className }) {
                 </div>
 
               <span className="about-index--est">est. 2017</span>
-              <Link to={`${location.pathname}` + `about`} className="button about-index--button">{buttontext}</Link>
+              <Link to={lang === 'ru' ? '/about' : '/en/about'} className="button about-index--button">{buttontext}</Link>
             </div>
 
            

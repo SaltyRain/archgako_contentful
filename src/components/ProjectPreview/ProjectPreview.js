@@ -58,7 +58,7 @@ function ProjectPreview ({ lang, project }) {
                             })
                         }
                     </ol>
-                    <Link className="project-preview--link" to={`${location.pathname}/` + `${project.slug.toLowerCase()}`}>
+                    <Link className="project-preview--link" to={lang === 'ru' ? `/projects/` + `${project.slug.toLowerCase()}` : `/en/projects/` + `${project.slug.toLowerCase()}`}>
                         <span className="project-preview--link-text">{text.toProject}</span>
                         <span className="project-preview--link-arrow" dangerouslySetInnerHTML={{__html: '&#10230'}}></span>
                     </Link>

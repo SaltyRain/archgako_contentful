@@ -2,45 +2,36 @@ import React from 'react'
 import ServiceButton from '../ServiceButton/ServiceButton'
 import './ServicesBlock.scss'
 
-function ServicesBlock({ group, data, setActiveInfo }) {
-  const [activeBlock, setActiveBlock] = React.useState('')
-  // console.log(activeBlock, 'activeBlock')
-  const openInfo = ({ active }) => {
-    setActiveBlock(active)
+const containerClassByGroup = {
+  main: 'services-block_main',
+  extra: 'services-block_extra',
+}
+
+const btnClassByGroup = {
+  main: 'services-block--item_main',
+  extra: 'services-block--item_extra',
+}
+
+function ServicesBlock({ group, data, setActiveInfo, activeInfo }) {
+  const toggleBlock = ({ active }) => {
     setActiveInfo(active)
   }
 
-  let newArray = data.filter((elem) => {
-    if (elem.group === group) {
-      return elem
-    }
-  })
-
-  let containerClass = '',
-    btnClass = '',
-    btnClassOpened = ''
-  if (group === 'main') {
-    containerClass = 'services-block_main'
-    btnClass = 'services-block--item_main'
-    btnClassOpened = 'services-block--item_main-active'
-  }
-  if (group === 'extra') {
-    containerClass = 'services-block_extra'
-    btnClass = 'services-block--item_extra'
-    btnClassOpened = 'services-block--item_extra-active'
-  }
+  const servicesItems = data.filter(
+    (serviceItem) => serviceItem.group === group
+  )
 
   return (
-    <div className={'services-block ' + containerClass}>
-      {newArray.map((item) => {
+    <div className={'services-block ' + containerClassByGroup[group]}>
+      {servicesItems.map((item) => {
         return (
           <ServiceButton
             key={item.id}
-            onServiceButtonClick={openInfo}
-            activeBlock={activeBlock}
+            toggleBlock={toggleBlock}
             item={item}
-            btnClass={btnClass}
+            btnClass={btnClassByGroup[group]}
             group={group}
+            activeBlock={activeInfo}
           />
         )
       })}

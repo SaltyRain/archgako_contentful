@@ -13,19 +13,18 @@ import Stages from '../components/Stages/Stages'
 
 const ServicesPage = ({ data, location }) => {
   const language = 'ru'
-  const [activeMainInfo, setActiveMainInfo] = useState('')
-  const [activeExtraInfo, setActiveExtraInfo] = useState('')
-  console.log(activeMainInfo, 'activeMainInfo'),
-    console.log(activeExtraInfo, 'activeExtraInfo')
+  const [activeMainInfo, setActiveMainInfo] = useState(null)
+  const [activeExtraInfo, setActiveExtraInfo] = useState(null)
+
   const [isPopupOpened, togglePopup] = useState(false)
+
   const togglePopupOpened = () => togglePopup(!isPopupOpened)
+
+  React.useEffect(() => {})
 
   return (
     <Layout location={location} lang={language}>
-                  <SEO 
-                lang = {language}
-                title = 'Услуги'
-            />
+      <SEO lang={language} title="Услуги" />
       <div className="container">
         <Animated>
           <h1 className="page--heading">Услуги</h1>
@@ -33,40 +32,41 @@ const ServicesPage = ({ data, location }) => {
             group="main"
             data={data.allContentfulService.nodes}
             setActiveInfo={setActiveMainInfo}
-          />
-          <ServiceInfo
-            group="main"
-            data={data.allContentfulService.nodes}
-            lang={language}
             activeInfo={activeMainInfo}
           />
+          {activeMainInfo && (
+            <ServiceInfo
+              group="main"
+              data={data.allContentfulService.nodes}
+              lang={language}
+              activeInfo={activeMainInfo}
+            />
+          )}
 
           <div class="services-block--page-text">
-                    <p
-                        class="page-text_center page-text_tight page-text_close-paragraph"
-                    >
-                        Помимо основных, мы предоставляем несколько
-                        дополнительных услуг.
-                    </p>
-                    <p
-                        class="page-text page-text_center page-text_tight page-text_close-paragraph"
-                    >
-                        Дополнительные услуги могут быть добавлены к основным
-                        услугам или же браться отдельно.
-                    </p>
-                </div>
+            <p class="page-text_center page-text_tight page-text_close-paragraph">
+              Помимо основных, мы предоставляем несколько дополнительных услуг.
+            </p>
+            <p class="page-text page-text_center page-text_tight page-text_close-paragraph">
+              Дополнительные услуги могут быть добавлены к основным услугам или
+              же браться отдельно.
+            </p>
+          </div>
 
           <ServicesBlock
             group="extra"
             data={data.allContentfulService.nodes}
             setActiveInfo={setActiveExtraInfo}
-          />
-          <ServiceInfo
-            group="extra"
-            data={data.allContentfulService.nodes}
-            lang={language}
             activeInfo={activeExtraInfo}
           />
+          {activeExtraInfo && (
+            <ServiceInfo
+              group="extra"
+              data={data.allContentfulService.nodes}
+              lang={language}
+              activeInfo={activeExtraInfo}
+            />
+          )}
         </Animated>
       </div>
 

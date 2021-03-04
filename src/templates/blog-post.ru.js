@@ -5,7 +5,7 @@ import { Animated } from "react-animated-css";
 import Layout from '../components/Layout/Layout'
 import SEO from '../components/SEO'
 
-function BlogPost({data}) {
+function BlogPost({data, location}) {
     let minutes;
     if (Number(data.contentfulBlogPost.readingTime) === 1)
         minutes = 'минута';

@@ -33,17 +33,11 @@ function Header({ lang, location }) {
   }
 `)
 let sitePhone; 
-// data.ruPhone.nodes[0].phone[0];
 
 if (lang === 'ru') 
   sitePhone = data.ruPhone.nodes[0].phone[0];
 else
   sitePhone = data.euPhone.nodes[0].phone[1];
-
-function closeMenu(e) {
-    e.preventDefault();
-    console.log('По ссылке кликнули.');
-}
 
 let request;
 if (lang === 'ru')

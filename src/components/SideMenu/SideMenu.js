@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import Navigation from '../Navigation/Navigation'
 import LanguageSelector from '../LanguageSelector/LanguageSelector'
 import HeaderMobileContacts from '../HeaderMobileContacts/HeaderMobileContacts'
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+
 
 import './SideMenu.scss'
 
@@ -44,7 +44,6 @@ function SideMenu({isOpened, clickHandler, lang, location}) {
                     location={location}
                 />
                 <Link to='/contacts#request-form'  className="side-menu--request button">{request}</Link>
-                {/* <AnchorLink className="side-menu--request button" offset='100' href="/contacts/#request-form">{request}</AnchorLink> */}
             </div>
 
         </div>

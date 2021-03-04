@@ -4,7 +4,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 
 import InstIcon from '../../../static/images/smedia/instagram.svg'
 import FbIcon from '../../../static/images/smedia/facebook.svg'
-
+import PhoneNormalize from '../PhoneNormalize/PhoneNormalize';
 function HeaderMobileContacts({lang, location}) {
     const data = useStaticQuery(graphql`
     query HeaderMobileContactsQuery {
@@ -50,7 +50,7 @@ function HeaderMobileContacts({lang, location}) {
             {
                 phones.map((item) => {
                     return (
-                        <a key={item} href={`tel:${item}`} className='mobile-contacts--text'>{item}</a>
+                        <a key={item} href={`tel:${item}`} className='mobile-contacts--text'>{PhoneNormalize(item)}</a>
                     )
                 })
             }
